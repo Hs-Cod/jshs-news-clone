@@ -1,0 +1,137 @@
+#jnewsBody{
+    /* background: rgb(2,0,36);
+    background: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(134,22,87,1) 35%, rgba(255,166,158,1) 100%); */
+
+    /* background-color: #09814A;
+    background: linear-gradient(180deg, #09814A 0%, #09814A 36.46%, #121413 100%); */
+
+    /* background-size: cover !important; */
+    background: url(../src/event/christmas-back.jpg) left bottom repeat, #005548;
+}
+
+#christmasThemeContainer{
+    display: block !important;
+}
+#snowpile{
+    position: fixed;
+    /* z-index: -1; */
+    bottom: 0;
+    right:0;
+    width: 100vw;
+    height: 120px;
+    filter: blur(1px);
+    transform: translateY(0px);
+    transition: all .8s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+#christmasThemeContainer:hover> #snowpile{
+    cursor: pointer;
+    transform: translateY(40px);
+}
+#christmasThemeContainer:hover> #snowpile2{
+    transform: translateY(25px);
+}
+#christmasThemeContainer:hover> #snowman{
+    transform: translateY(15px) rotate(7deg);
+    cursor: pointer;
+}
+
+#christmasThemeContainer:active> #snowpile{
+    transform: translateY(50px);
+}
+#christmasThemeContainer:active> #snowpile2{
+    transform: translateY(30px);
+}
+#christmasThemeContainer:active> #snowman{
+    transform: translateY(20px) rotate(10deg);
+}
+#cannonContainer{
+    height: calc(100% - 40px);
+}
+
+
+#snowpile2{
+    position: fixed;
+    z-index: -1;
+    bottom: 0;
+    right:0;;
+    width: 100vw;
+    height: 180px;
+    filter: blur(1px) brightness(0.96);
+    transition: all 1.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+} 
+#snowman{
+    transition: all .8s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+    position: fixed;
+    bottom: 0;
+    right:0;
+    margin: 0px 20px;
+    height: 250px;
+    fill: blur(1px);
+}
+
+.notice_item{
+    background: url(../src/event/check-texture.png), #0F8A5F !important;
+}
+.notice_item_link:nth-child(even) div{
+    background: url(../src/event/check-texture.png),#CC231E !important;
+}
+
+#page_food .card-header{
+    background: url(../src/event/check-texture.png),#f7f7f7;
+}
+#page_food .card-body{
+    background: url(../src/event/paper-texture.png),#ffffff;
+}
+.border-info{
+    background: url(../src/event/check-texture.png),#235E6F !important;
+}
+
+.widget{
+    box-shadow: 0px 5px 5px 0px rgb(219 219 219 / 50%);
+}
+#cannonContainer{
+    background-image: none !important;
+    backdrop-filter: blur(10px) brightness(0.7);
+}
+#cannonContinaer
+#panel{
+    border-radius: 235px 3px 213px 4px/11px 230px 9px 235px;
+    background: url(../src/event/paper-texture.png) repeat, white;
+}
+#navigator{
+    border-bottom-right-radius: 0px;
+    background-color: #eaf5fb;
+    background: url(../src/event/paper-texture-light.png) repeat, linear-gradient(180deg, #eaf5fb 0%, #eaf5fb 36.46%, #ffffff 100%);
+
+    border-radius: 235px 3px 213px 4px/11px 230px 9px 235px;
+
+
+    box-shadow: none;
+}
+#navigator .menu_item{
+    /* color: white !important; */
+}
+#navigator .menu_item:hover{
+    color: #d04c48 !important;
+    background-color: white;
+}
+#navigator .active{
+    color: black !important;
+}
+
+.menuTitle, .food_item, #weatherTemperature,.text-info{
+    color: #235E6F !important;
+}
+
+@media screen and (max-width:767px) {
+    #snowpile, #snowpile2{
+        height: 70px !important;
+    }
+    #snowman{
+        height: 180px;
+    }
+    #page_main{
+        margin-bottom: 150px;
+    }
+}

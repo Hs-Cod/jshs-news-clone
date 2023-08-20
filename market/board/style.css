@@ -1,0 +1,163 @@
+/* ------------------- Slider css ------------------- */
+/* ------------------- Slider css ------------------- */
+/* ------------------- Slider css ------------------- */
+/* ------------------- Slider css ------------------- */
+
+.item{
+    width:900px;
+    margin:20px auto;
+}
+.item-pic{
+    object-fit: cover;
+    width:300px;
+    height:340px;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    transform: translateX(-1px);
+}
+.item-title{
+    font-size: 1.5rem;
+    font-weight: bold;
+    display: block;
+    font-family: 'yg-jalnan', sans-serif;
+    margin:10px;
+}
+.item-title .badge{
+    font-family: 'NanumSquareRound', sans-serif;
+    font-size: 0.9rem;
+    transform:translateY(-0.5rem)
+}
+.item-desc{
+    font-size: 1rem;
+    display: block;
+    margin: 15px 10px;
+}
+.item-seller{
+    font-size: 0.85rem;
+    display: block;
+    margin: 5px 10px;
+}
+.item-date{
+    font-size: 0.85rem;
+    display: block;
+    margin: 5px 10px;
+}
+.item-zzim{
+    float:right;
+    padding:10px;
+    font-size: 2rem;
+}
+.item-zzim a{
+    text-decoration: none;
+    color:red !important;
+}
+.item-zzim a:hover{
+    text-decoration:none;
+}
+.item-zzim img{
+    width:30px;
+    transform: translateY(-10px);
+}
+
+@media screen and (max-width:1200px){
+    .item th:first-child{
+        width:250px;
+    }
+    .item-pic{
+        width:250px;
+        height:250px;
+    }
+    .item-title, .item-desc, .item-seller, .item-date{
+        margin:5px
+    }
+    .item{
+        width:850px;
+    }
+}
+
+@media screen and (max-width:1000px){
+    .item{
+        width:750px;
+        margin:15px auto;
+    }
+    .item th:first-child{
+        width:150px;
+    }
+    .item-pic{
+        width:150px;
+        height:200px;
+    }
+    .item-title{
+        font-size: 1rem;
+    }
+    .item-title .badge{
+        font-size: 0.7rem;
+        transform:none;
+    }
+    .item-zzim{
+        font-size: 1.4rem;
+    }
+    .item-desc, .item-seller, .item-date{
+        font-size: 0.8rem;
+    }
+    .titleDesc{
+        font-size: 1.8rem;
+        margin :30px 0px 30px 40px;
+    }
+}
+
+
+@media screen and (max-width:800px){
+    :root {
+        --gutter: 20px;
+    }
+    .item{
+        width:100%;
+        border-radius: 0px !important;
+    }
+
+    .item th:first-child{
+        width:250px;
+    }
+    .item-pic{
+        width:250px;
+        height:250px;
+        border-radius: 0px;
+    }
+    .item-title{
+        font-size: 1rem;
+    }
+    .item-title .badge{
+        font-size: 0.7rem;
+        transform:none;
+    }
+    .item-zzim{
+        font-size: 1.4rem;
+    }
+    .item-desc, .item-seller, .item-date{
+        font-size: 0.8rem;
+    }
+
+    .titleDesc{
+        font-size: 1.5rem;
+        margin :30px 0px 30px 10px !important;
+    }
+}
+@media screen and (max-width:600px){
+    .item th:first-child{
+        width:210px;
+    }
+    .item-pic{
+        width:210px;
+        height:210px;
+    }
+}
+@media screen and (max-width:500px){
+    .item th:first-child{
+        width:220px;
+    }
+    .item-pic{
+        width:220px;
+        height:250px;
+    }
+}

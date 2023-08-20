@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" Content="text/html; charset=utf-8">
+    <meta name="description" content="전곽의 모든 것. 전곽일보 하나만으로.">
+    <meta name="keywords" content="jshs,jeonnam,전남과학고,전곽,전곽일보,급식,전곽 급식,huzi,huzikim,munzii">
+    <meta property="og:image" content="src/icon_preview.webp">
+    <meta property="og:title" content="전곽일보">
+    <meta property="og:description" content="전곽의 모든 것. 전곽일보 하나만으로.">
+    <link rel="canonical" href="https://jshs.munzii.com/">
+    <link rel="shortcut icon" href="../src/icon_small.webp">
+  
+    <!-- theme color -->
+    <meta name="theme-color" content="#f75127">
+    <meta name="msapplication-navbutton-color" content="#f75127">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#f75127">
+    <!-- script -->
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+  
+    <script>
+      var isIE = /*@cc_on!@*/false || !!document.documentMode;
+      if (isIE) {
+        alert("인터넷 익스플로러는 지원하지 않습니다. 크로미움 브라우저로 접속해 주세요.\nex) Google Chrome, Naver Whale, Microsoft Edge");
+        document.write('<h2><b>크롬</b>으로 접속해주세요.<br>Please. Enter with <b>Chrome</b>.<h2><style type="text/undefined">');
+        history.go(-1);
+      }
+    </script>
+
+    <title>전곽일보 로그인</title>
+
+    <link rel="stylesheet" type="text/css" href="style.css?v=1.0.5">
+    <script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-auth.js"></script>
+</head>
+
+<body>
+    <div id='login' class="transOne">
+        <div id='form' class="transOne round-border">
+            <h1><span data-langNum="1"></span>
+                <div style="float:right;">
+                    <button id='enLang' data-lang="en" class="language en">Eng</button>
+                    <button id='koLang' data-lang="ko" class="language ko">한글</button>
+                </div>
+            </h1>
+            <h2 id='wrongId' class="transOne desc" data-langNum="2"></h2>
+            <input type='text' id='idInput' class='textbox transShort ph' data-langNum="3">
+            <h2 id='wrongPw' class="transOne desc" data-langNum="4"></h2>
+            <input type='password' id='pwInput' class='textbox transShort ph' data-langNum="5">
+            <h2 id='wrongTry' class="transOne desc" data-langNum="6"></h2>
+            <p id='signup' class="transShort" data-langNum="7"></p>
+            <button id='open' class="transShort unselectable round-border" data-langNum="8"></button>
+
+        </div>
+        <div id='formSignup' class="transOne round-border" style="display:none;">
+            <h1><a id="closeSignup"><img src="src/exit_colored.png"></a><span data-langNum="9"></span>
+                <div style="float:right;">
+                    <!-- <button id='enLang' data-lang="en" class="language en">Eng</button>
+                    <button id='koLang' data-lang="ko" class="language ko">한글</button> -->
+                </div>
+            </h1>
+            <input type='text' id='idSignInput' class='textbox transShort ph' data-langNum="3">
+            <input type='email' id='emailSignInput' class='textbox transShort ph' data-langNum="27">
+            <input type='password' id='pwSignInput' class='textbox transShort ph' data-langNum="5">
+            <input type='password' id='pwcheckSignInput' class='textbox transShort ph' data-langNum="10">
+            <!-- <input type='text' id='nickSignInput' class='textbox transShort ph' data-langNum="11"> -->
+
+            <h2 id='wrongTrySign' class="transOne desc" data-langNum="12"></h2>
+            <button id='signupOpen' class="transOne round-border" data-langNum="8"></button>
+
+        </div>
+        <div id='formLogined' class="transOne round-border" style="display:none;">
+            <h1><span data-langNum="13"></span></h1>
+            <table id="accountInfoTable">
+                <tr>
+                    <th>
+                        <b>
+                            <p id='accountIdDesc' class="transOne desc2" data-langNum="3"></p>
+                        </b>
+                    </th>
+                    <th>
+                        <h2 id='accountId' class="transOne">Loading...</h2>
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        <b>
+                            <p id='accountEmailDesc' class="transOne desc2" data-langNum="27"></p>
+                        </b>
+                    </th>
+                    <th>
+                        <h2 id='accountEmail' class="transOne">Loading...</h2>
+                        <a id="emailVerification" style="display: none;" href="javascript:emailVerification()">
+                            <span data-langNum="30"></span>
+                        </a>
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        <b>
+                            <p id='accountNickDesc' class="transOne desc2" data-langNum="11"></p>
+                        </b>
+                    </th>
+                    <th>
+                        <h2 id='accountNick' class="transOne">Loading...</h2>
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        <b>
+                            <p id='accountLevelDesc' class="transOne desc2" data-langNum="14"></p>
+                        </b>
+                    </th>
+                    <th>
+                        <h2 id='accountLevel' class="transOne">Loading...</h2>
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        <b>
+                            <p id='accountLevelDesc' class="transOne desc2" data-langNum="15"></p>
+                        </b>
+                    </th>
+                    <th>
+                        <button id='enLang' data-lang="en" class="language en">Eng</button>
+                        <button id='koLang' data-lang="ko" class="language ko">한글</button>
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        <b>
+                            <p id='accountProfileDesc' class="transOne desc2" data-langNum="16"></p>
+                        </b>
+                    </th>
+                </tr>
+            </table>
+            <div id="profileDiv">
+                <img id='accountProfile' class="transOne"><br>
+                <label class="custom-file-upload">
+                    <img src="src/plus.png" style="width: 30px; margin:5px;">
+                    <input type="file" id="profileUpload" />
+                </label>
+            </div>
+            <button id='logout' class="transShort round-border" data-langNum="17"></button>
+        </div>
+    </div>
+
+    <div class="loadingscreen" id="loginLoading">
+        <div class="typing_loader  center"></div>
+    </div>
+
+    <script src="functions.js?v=1.0.3"></script>
+    <script src="language.js?v=1.0.0"></script>
+</body>
+
+</html>

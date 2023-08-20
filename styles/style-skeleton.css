@@ -1,0 +1,240 @@
+/* @import url('https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css'); */
+@font-face {
+  font-family: 'NanumSquareRound';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+html {
+  width: 100%;
+  height: 100%;
+}
+
+* {
+  font-family: 'NanumSquareRound', sans-serif !important;
+}
+
+a {
+  text-decoration: none;
+}
+
+#jnewsBody {
+  background-color: #eef1f3;
+}
+
+#panel {
+  background-color: #fff;
+  border-radius: 30px;
+  box-sizing: border-box;
+  position: fixed;
+  box-shadow: 0px 0px 10px 0px rgba(219, 219, 219, 0.5);
+  overflow: hidden;
+
+  display: flex;
+
+}
+
+#navigator {
+  background-color: #fafafa;
+  height: 100%;
+  padding: 30px;
+  border-bottom-right-radius: 95px;
+  box-shadow: 2px 0px 10px #969adb36;
+}
+
+#navigator #icon {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 20px;
+}
+
+#navigator .menu_item {
+  padding: 10px 15px;
+  font-size: 1.1em;
+  font-weight: bold;
+  color: #4b4b4b !important;
+  border-radius: 30px;
+  margin: 10px;
+}
+
+#navigator .menu_item:hover {
+  background-color: #6370be;
+  color: #fff !important;
+  cursor: pointer;
+}
+
+#navigator .menu_item:hover>a {
+  color: #fff !important;
+}
+
+#navigator .active {
+  background-color: white;
+  box-shadow: 0px 0px 10px 0px rgba(219, 219, 219, 0.5);
+}
+
+#navigator .menu_item a {
+  color: #6370be !important;
+}
+
+#navigator .menu_item i {
+  margin-right: 10px;
+}
+
+.page {
+  padding: 20px;
+  height: 100%;
+  overflow-y: scroll;
+}
+
+#pages_container {
+  flex: 1;
+}
+
+/* Loading */
+#loadingContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #eef1f3;
+  z-index: 99999;
+}
+
+
+/* Utilties */
+
+.hidden {
+  display: none !important;
+}
+
+.transOne {
+  -webkit-transition: all 1s !important;
+  -moz-transition: all 1s !important;
+  -ms-transition: all 1s !important;
+  -o-transition: all 1s !important;
+  transition: all 1s !important;
+}
+
+.transShort {
+  -webkit-transition: all .5s !important;
+  -moz-transition: all .5s !important;
+  -ms-transition: all .5s !important;
+  -o-transition: all .5s !important;
+  transition: all .5s !important;
+}
+
+.transFast {
+  -webkit-transition: all .1s !important;
+  -moz-transition: all .1s !important;
+  -ms-transition: all .1s !important;
+  -o-transition: all .1s !important;
+  transition: all .1s !important;
+}
+
+.menuTitle {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #6370be !important;
+  margin: 10px;
+  display: block;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+
+/*pulse*/
+
+.pulse {
+  box-shadow: 0 0 0 rgba(85, 85, 85, 0.4);
+  animation: pulse 2s infinite;
+}
+
+@-webkit-keyframes pulse {
+  0% {
+    -webkit-box-shadow: 0 0 0 0 rgba(85, 85, 85, 0.4);
+  }
+
+  70% {
+    -webkit-box-shadow: 0 0 0 7px rgba(85, 85, 85, 0);
+  }
+
+  100% {
+    -webkit-box-shadow: 0 0 0 0 rgba(85, 85, 85, 0);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    -moz-box-shadow: 0 0 0 0 rgba(85, 85, 85, 0.4);
+    box-shadow: 0 0 0 0 rgba(85, 85, 85, 0.4);
+  }
+
+  70% {
+    -moz-box-shadow: 0 0 0 7px rgba(85, 85, 85, 0);
+    box-shadow: 0 0 0 7px rgba(85, 85, 85, 0);
+  }
+
+  100% {
+    -moz-box-shadow: 0 0 0 0 rgba(85, 85, 85, 0);
+    box-shadow: 0 0 0 0 rgba(85, 85, 85, 0);
+  }
+}
+
+@keyframes groom {
+  0% {
+    transform: translateX(-10px);
+  }
+
+  50% {
+    transform: translateX(0px);
+  }
+
+  100% {
+    transform: translateX(-10px);
+  }
+}
+
+
+@keyframes placeHolderShimmer {
+  0% {
+    background-position: -468px 0
+  }
+
+  100% {
+    background-position: 468px 0
+  }
+}
+
+.loadingBackground {
+  animation-duration: 1.25s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-name: placeHolderShimmer;
+  animation-timing-function: linear;
+  background: darkgray;
+  background: linear-gradient(45deg, #eeeeee 10%, #dddddd 18%, #eeeeee 33%);
+  background-size: 800px 104px;
+  height: 100px;
+  position: relative;
+}
+
+
+@keyframes float {
+	0% {
+		transform: translatey(0px);
+	}
+	50% {
+		transform: translatey(20px);
+	}
+	100% {
+		transform: translatey(0px);
+	}
+}
+
+.floating{
+  animation: float 6s ease-in-out infinite;
+}

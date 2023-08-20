@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Type" Content="text/html; charset=utf-8">
+  <meta name="description" content="전곽의 모든 것. 전곽일보 하나만으로.">
+  <meta name="keywords" content="jshs,jeonnam,전남과학고,전곽,전곽일보,급식,전곽 급식,huzi,huzikim,munzii">
+  <meta property="og:image" content="src/icon_preview.png">
+  <meta property="og:title" content="UNPLIVAL - 초콜릿 공장">
+  <meta property="og:description" content="전곽의 모든 것. 전곽일보 하나만으로.">
+  <link rel="canonical" href="https://jshs.munzii.com/">
+  <title>UNPLIVAL - 전곽일보</title>
+  <link rel="shortcut icon" href="../src/icon_small.png">
+
+  <!-- theme color -->
+  <meta name="theme-color" content="#f75127">
+  <meta name="msapplication-navbutton-color" content="#f75127">
+  <meta name="apple-mobile-web-app-status-bar-style" content="#f75127">
+
+
+	<link href="https://fonts.googleapis.com/css?family=Mountains+of+Christmas&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.js"></script>
+
+</head>
+
+<body>
+	<h1 id="title"><a href="javascript:hideall()"><img src="image/unplival_logo_white.png" width="400"></a></h1>
+	<div id="bag" style="position:fixed; top:0; right:0; z-index:1; margin-right: 280px; margin-top: -500px;">
+		<img src="image/bag2.png" style="width: 100px">
+	</div>
+	<div style="position:fixed; top:0; left:0; z-index:2; margin-left: 424px; margin-top: 63px;padding:20px; background-color: white;border-radius:20px;">
+		<a href="index.html"><img src="image/chocolate.png" width="100"></a><b id="chocolateNumber"> x 0</b>
+		<hr>
+		<b id="cardNumber">카드 사용 횟수 : 0</b>
+	</div>
+	<div>
+		<canvas style="z-index:0" id="myCanvas"></canvas>
+	</div>
+
+	<div style="position:fixed;bottom:0;left:-700px;z-index:2" id="commandworld">
+		<!-- <input type="text" id="dododo" disabled onkeydown="doit(event)"> -->
+		<img src="image/기본.png" width="200" id="imagepreview">
+		<button type="button" id="longkey">⌨</button>
+		
+		<hr>
+		<img src="image/짜기.png"> <z>Q</z>
+		<img src="image/만없 짜기.png"> <z>W</z>
+		<img src="image/스위치.png"> <z>E</z>
+		<img src="image/만있 시계 1 회전.png"> <z>R</z>
+		<img src="image/만있 반시계 1 회전.png"> <z>T</z>
+
+		<br>
+		<img src="image/시계 1 회전.png"> <z>A</z>
+		<img src="image/반시계 1 회전.png"> <z>S</z>
+		<img src="image/시계방향2.png"> <z>D</z>
+		<img src="image/반시계 방향 2.png"> <z>F</z>
+		<br>
+		<img src="image/꺼내기.png"> <z>Z</z>
+		<img src="image/만있 꺼내기.png"> <z>X</z>
+		<img src="image/만있 굳히고 꺼내기.png"> <z>C</z>
+		<img src="image/만없 꺼내기.png"> <z>V</z>
+	</div>
+
+	<div id="doneworld">
+		<h2 style="font-size:50px;">명령 실행 완료!</h2>
+		<a href="index.html"><img src="image/chocolate.png" width="200"></a><b id="chocolateNumber2" style="font-size: 100px;"> x 0</b><br><br>
+		<button type="button" id="closeresult" style="padding:20px;font-size:40px;border-radius:100px;background-color:rgb(64, 161, 64);color:white; border:none;">확인</button>
+		<img src="image/wow.gif" width="500px" style="position:fixed; bottom:0; right:0;">
+		<img src="image/wow.gif" width="500px" style="position:fixed; bottom:0; left:0; transform:scaleX(-1)">
+		<img src="image/wow.gif" width="500px" style="position:fixed; top:0; left:0; transform:rotate(180deg)">
+		<img src="image/wow.gif" width="500px" style="position:fixed; top:0; right:0; transform:rotate(180deg) scaleX(-1) ">
+	</div>
+	<span style="position:fixed;bottom:2px;right:2px;color:black;font-size: 20px;">UNPLIVAL® All Rights Reserved. Made by HUZI & STARLight</span>
+	<div style="width: 200%; height:200%; margin:-50%;z-index:1;position:fixed;left:0;top:0;"></div>
+	<div style="width:120%; height:120%; margin:-10%;z-index:-2;position:fixed;left:0;top:0;background-image: url('image/factory.png');filter:blur(10px)"></div>
+	<script src="script.js"></script>
+</body>
+
+
+</html>

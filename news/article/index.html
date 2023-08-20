@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+<!--
+  전곽일보 from munzii.
+  https://munzii.com
+
+  Join us on Facebook
+  https://fb.com/jshsnews
+-->
+
+<head>
+  <!-- METADATA -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Type" Content="text/html; charset=utf-8">
+  <meta name="description" content="전곽인이라면? 전곽일보.">
+  <meta name="keywords" content="jshs,jeonnam,전남과학고,전곽,전곽일보,급식,전곽 급식,huzi,huzikim,munzii">
+  <meta property="og:image" content="src/icon_preview.webp">
+  <meta property="og:title" content="전곽일보">
+  <meta property="og:description" content="전곽의 모든 것. 전곽일보 하나만으로.">
+  <link rel="canonical" href="https://jshs.munzii.com/">
+  <title>전곽투데이</title>
+  <link rel="shortcut icon" href="../../src/new2/icon-small.png">
+
+  <!-- THEME COLOR -->
+  <meta name="theme-color" content="#f75127">
+  <meta name="msapplication-navbutton-color" content="#f75127">
+  <meta name="apple-mobile-web-app-status-bar-style" content="#f75127">
+
+  <!-- SCRIPT -->
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js"
+    integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script>
+    if (false || !!document.documentMode) {
+      alert("인터넷 익스플로러는 지원하지 않습니다. 크로미움 브라우저로 접속해 주세요.\nex) Google Chrome, Naver Whale, Microsoft Edge");
+      history.go(-1);
+    }
+
+  </script>
+
+  <!-- FIREBASE -->
+  <script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-firestore.js"></script>
+
+
+  <!-- CSS -->
+  <link rel="stylesheet" type="text/css" href="base-style.css?ver=J1.1.1">
+  <link rel="stylesheet" type="text/css" href="FIRECom.css?ver=J1.1.1">
+  <link rel="stylesheet" type="text/css" href="style.css?ver=J1.1.1">
+
+</head>
+
+<body data-aos-easing="ease" data-aos-duration="2000" data-aos-delay="0">
+  <div class="container-scroller">
+    <div class="main-panel">
+      <!-- partial:partials/_navbar.html -->
+
+      <header id="header">
+        <div class="container">
+          <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="navbar-bottom">
+              <div class="d-flex justify-content-between align-items-center">
+                <div>
+                  <a class="navbar-brand" href="https://jshs.munzii.com/news"><img src="../../src/new2/news-banner.png"
+                      alt="" /></a>
+                </div>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </header>
+
+      <div class="flash-news-banner" id="navbar">
+        <div class="container">
+          <div class="d-lg-flex align-items-center justify-content-between">
+            <div class="d-flex align-items-center">
+              <span class="badge badge-dark mr-3">공지사항</span>
+              <p class="mb-0">
+                전곽 Today 에 오신 것을 환영합니다 :D
+              </p>
+            </div>
+            <div class="d-flex">
+              <span class="mr-3 badge badge-secondary" id="todayWidget"></span>
+              <a href="https://jshs.munzii.com/news/admin" class="badge badge-info" id="todayWidget"><span>기자
+                  로그인</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="content-wrapper">
+        <div class="container" id="article">
+          <h1 id="articleTitle"></h1>
+          <span id="articleAuthor" class="mr-2"></span>·
+          <span id="articleDate" class="mr-2 ml-2"></span>·
+          <span id="articleView" class="ml-2"></span>
+          <hr>
+          <div id="articleContent"></div>
+          <div id="articleLikeContianer" class="p-2">
+            <a href="javascript:likeArticle()" id="likeBtn"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                width="50" height="50" viewBox="0 0 172 172" style=" fill:#000000;">
+                <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
+                  stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
+                  font-family="none" font-weight="none" font-size="none" text-anchor="none"
+                  style="mix-blend-mode: normal">
+                  <path d="M0,172v-172h172v172z" fill="none"></path>
+                  <g fill="#e74c3c">
+                    <path
+                      d="M51.6,24.08c-24.65781,0 -44.72,20.06219 -44.72,44.72c0,50.78031 57.43188,75.84125 76.97,92.1275l2.15,1.8275l2.15,-1.8275c19.53813,-16.28625 76.97,-41.34719 76.97,-92.1275c0,-24.65781 -20.06219,-44.72 -44.72,-44.72c-13.94812,0 -26.20312,6.62469 -34.4,16.6625c-8.19687,-10.03781 -20.45187,-16.6625 -34.4,-16.6625zM51.6,30.96c13.19563,0 24.725,6.7725 31.4975,16.985l2.9025,4.3l2.9025,-4.3c6.7725,-10.2125 18.30188,-16.985 31.4975,-16.985c20.93563,0 37.84,16.90438 37.84,37.84c0,44.37063 -49.5575,67.33531 -72.24,85.2475c-22.6825,-17.91219 -72.24,-40.87687 -72.24,-85.2475c0,-20.93562 16.90438,-37.84 37.84,-37.84z">
+                    </path>
+                  </g>
+                </g>
+              </svg> 0</a><br>
+          </div>
+          <hr>
+        </div>
+        <div class="container">
+
+          <div class="row mt-4">
+            <div class="col-sm-6 p-0">
+              <div class="card mr-4 p-4" id="newsList">
+              </div>
+            </div>
+            <div class="card col-sm-6 p-4">
+              <ins class="kakao_ad_area" style="display:none;" data-ad-unit="DAN-os0eV5hT7kdRq9nj" data-ad-width="300"
+                data-ad-height="250"></ins>
+              <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+    <footer>
+      <div class="footer-top">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-5">
+              <img src="../../src/new2/news-banner.png" class="footer-logo">
+              <h5 class="font-weight-normal mt-4 mb-5">
+                전곽의 모든 것. 전곽일보.
+              </h5>
+              <div class="icon-list-social mb-5">
+                <a class="icon-list-social-link" href="https://www.facebook.com/jshsnews">
+                  <svg width="40" class="svg-inline--fa fa-facebook fa-w-16" aria-hidden="true" focusable="false"
+                    data-prefix="fab" data-icon="facebook" role="img" xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 512 512" data-fa-i2svg="">
+                    <path
+                      d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z">
+                    </path>
+                  </svg>
+                </a>
+                <a class="icon-list-social-link" href="https://m.me/jshsnews">
+                  <svg style="width:40px; height: 40px;" id="Bold" enable-background="new 0 0 24 24" height="512"
+                    viewBox="0 0 24 24" width="512" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="m0 11.111c0 3.496 1.744 6.615 4.471 8.652v4.237l4.086-2.242c1.09.301 2.245.465 3.442.465 6.627 0 12-4.974 12-11.111.001-6.137-5.372-11.112-11.999-11.112s-12 4.974-12 11.111zm10.734-3.112 3.13 3.259 5.887-3.259-6.56 6.962-3.055-3.258-5.963 3.259z">
+                    </path>
+                  </svg>
+                </a>
+              </div>
+            </div>
+
+            <div class="col-sm-4">
+              <h3 class="font-weight-bold mb-3">Family Sites</h3>
+              <div class="footer-border-bottom pb-2">
+                <a href="https://jshs.munzii.com/">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <h5 class="mb-0 font-weight-600">전곽일보</h5>
+                  </div>
+                </a>
+              </div>
+              <div class="footer-border-bottom pb-2">
+                <a href="https://jshs.munzii.com/news">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <h5 class="mb-0 font-weight-600">전곽투데이</h5>
+                  </div>
+                </a>
+              </div>
+              <div class="footer-border-bottom pb-2">
+                <a href="https://jshs.munzii.com/market">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <h5 class="mb-0 font-weight-600">전곽 MARKET</h5>
+                  </div>
+                </a>
+              </div>
+              <div class="footer-border-bottom pb-2">
+                <a href="https://jshs.munzii.com/jcal">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <h5 class="mb-0 font-weight-600">전곽 캘린더</h5>
+                  </div>
+                </a>
+              </div>
+              <div class="footer-border-bottom pb-2">
+                <a href="https://jshs.munzii.com/history">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <h5 class="mb-0 font-weight-600">전곽일보 Timetravel</h5>
+                  </div>
+                </a>
+              </div>
+              <div class="footer-border-bottom pb-2">
+                <a href="https://jshs.munzii.com/unplival">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <h5 class="mb-0 font-weight-600">UNPLIVAL 초콜릿 공장</h5>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+            <div class="col-sm-3">
+              <h3 class="font-weight-bold mb-3">Views</h3>
+              <ul class="list-unstyled mb-0">
+                <li class="mb-2">Today <b><span id="todayView">0</span></b></li>
+                <li class="mb-2">Total <b><span id="totalView">0</span></b></li>
+              </ul>
+              <hr>
+              <h3 class="font-weight-bold mb-3">Developer</h3>
+              <ul class="list-unstyled mb-0">
+                <li class="mb-2">JSHS 27<sup>th</sup> HUZI (김지후)</li>
+              </ul>
+
+
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="d-sm-flex justify-content-between align-items-center">
+                <div class="fs-14 font-weight-600">
+                  © 2021 @ <a href="https://munzii.com/" target="_blank" class="text-white"> Munzii</a>. All rights
+                  reserved.
+                </div>
+                <div class="fs-14 font-weight-600">
+                  Keep in touch with <a href="mailto:huzi@kakao.com"><b>huzi@kakao.com</b></a> or <a
+                    href="https://m.me/jshsnews"><b>Messenger</b></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+  </div>
+
+
+  <script> var mode_DEVELOP = false;</script>
+  <script type="text/javascript" src="functions.js?ver=J1.1.1"></script>
+
+</body>
+
+</html>

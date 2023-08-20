@@ -1,0 +1,18 @@
+.menuControl{
+    color:grey;
+}
+
+.gogi{
+    background-color: #f4f4f4;
+}
+
+#page_food .card-header{
+    font-size: 1.2rem;
+    border-top-left-radius: 10px !important;
+    border-top-right-radius: 10px !important;
+
+}
+#page_food .card{
+    border:none;
+    border-radius: 10px !important;
+}

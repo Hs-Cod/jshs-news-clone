@@ -1,0 +1,134 @@
+#calendar {
+    height: 100%;
+    width: 100%;
+}
+
+.tui-full-calendar-weekday-grid-line {
+    border-right: 0px !important;
+}
+
+.tui-full-calendar-weekday-border {
+    border-top: 1px solid #f4f4f4 !important;
+}
+
+#monthNow {
+    min-width: 200px;
+    text-align: center;
+    display: inline-block;
+}
+
+#calendar_tools {
+    text-align: center;
+}
+
+#hakbanChooseBtn {
+    border: 0px !important;
+}
+
+.tui-full-calendar-popup-container {
+    box-shadow: 3px 3px 10px #f4f4f4 !important;
+    border-radius: 10px !important;
+    border: none !important;
+    width: 298px !important;
+    min-width: 0px !important;
+    overflow:scroll;
+    height: 100% !important;
+}
+
+.tui-full-calendar-section-title{
+    width: 100% !important;
+
+}
+#calendar > div > div.tui-full-calendar-floating-layer.tui-view-14 > div > div.tui-full-calendar-popup-container > div.tui-full-calendar-popup-section.tui-full-calendar-dropdown.tui-full-calendar-close.tui-full-calendar-section-calendar.tui-full-calendar-hide{
+    display: none;
+}
+.tui-full-calendar-section-title input,.tui-full-calendar-popup-section-item.tui-full-calendar-section-location input{
+    width: 220px !important;
+}
+.tui-full-calendar-confirm {
+    background-color: #333 !important;
+    box-shadow: 3px 3px 5px #d4d4d4 !important;
+}
+
+.tui-full-calendar-popup-section-item {
+    border: 0px !important;
+
+}
+
+.tui-full-calendar-button.tui-full-calendar-section-private {
+    display: none;
+}
+
+.tui-full-calendar-section-state {
+    display: none;
+}
+
+.tui-full-calendar-icon.tui-full-calendar-ic-title {
+    background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgZmlsbD0iY3VycmVudENvbG9yIiBjbGFzcz0iYmkgYmktY2hhdC1maWxsIiB2aWV3Qm94PSIwIDAgMTYgMTYiPgogIDxwYXRoIGQ9Ik04IDE1YzQuNDE4IDAgOC0zLjEzNCA4LTdzLTMuNTgyLTctOC03LTggMy4xMzQtOCA3YzAgMS43Ni43NDMgMy4zNyAxLjk3IDQuNi0uMDk3IDEuMDE2LS40MTcgMi4xMy0uNzcxIDIuOTY2LS4wNzkuMTg2LjA3NC4zOTQuMjczLjM2MiAyLjI1Ni0uMzcgMy41OTctLjkzOCA0LjE4LTEuMjM0QTkuMDYgOS4wNiAwIDAgMCA4IDE1eiIvPgo8L3N2Zz4=") no-repeat !important;
+    background-size: contain !important;
+}
+
+.tui-full-calendar-icon.tui-full-calendar-ic-location {
+    background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgZmlsbD0iY3VycmVudENvbG9yIiBjbGFzcz0iYmkgYmktanVzdGlmeS1sZWZ0IiB2aWV3Qm94PSIwIDAgMTYgMTYiPgogIDxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgZD0iTTIgMTIuNWEuNS41IDAgMCAxIC41LS41aDdhLjUuNSAwIDAgMSAwIDFoLTdhLjUuNSAwIDAgMS0uNS0uNXptMC0zYS41LjUgMCAwIDEgLjUtLjVoMTFhLjUuNSAwIDAgMSAwIDFoLTExYS41LjUgMCAwIDEtLjUtLjV6bTAtM2EuNS41IDAgMCAxIC41LS41aDExYS41LjUgMCAwIDEgMCAxaC0xMWEuNS41IDAgMCAxLS41LS41em0wLTNhLjUuNSAwIDAgMSAuNS0uNWgxMWEuNS41IDAgMCAxIDAgMWgtMTFhLjUuNSAwIDAgMS0uNS0uNXoiLz4KPC9zdmc+") no-repeat !important;
+    background-size: contain !important;
+}
+
+.tui-full-calendar-icon.tui-full-calendar-ic-date{
+    background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgZmlsbD0iY3VycmVudENvbG9yIiBjbGFzcz0iYmkgYmktY2FsZW5kYXIiIHZpZXdCb3g9IjAgMCAxNiAxNiI+CiAgPHBhdGggZD0iTTMuNSAwYS41LjUgMCAwIDEgLjUuNVYxaDhWLjVhLjUuNSAwIDAgMSAxIDBWMWgxYTIgMiAwIDAgMSAyIDJ2MTFhMiAyIDAgMCAxLTIgMkgyYTIgMiAwIDAgMS0yLTJWM2EyIDIgMCAwIDEgMi0yaDFWLjVhLjUuNSAwIDAgMSAuNS0uNXpNMSA0djEwYTEgMSAwIDAgMCAxIDFoMTJhMSAxIDAgMCAwIDEtMVY0SDF6Ii8+Cjwvc3ZnPg==") no-repeat !important;
+    background-size: contain !important;
+}
+.tui-full-calendar-section-allday .tui-full-calendar-icon.tui-full-calendar-ic-checkbox{
+    border-radius: 100px !important;
+    border: 1px solid grey;
+}
+
+.tui-full-calendar-popup-detail{
+    box-shadow : none !important;
+    border-radius: 10px !important;
+    /* overflow: hidden; */
+}
+.tui-full-calendar-popup-detail .tui-full-calendar-popup-container{
+    padding-bottom: 10px !important;
+    box-shadow: 1px 1px 5px #d8d8d8 !important;
+}
+.tui-full-calendar-month-creation-guide{
+   border: none !important;
+   background-color: #9191910e !important;
+}
+
+.pickColorElem {
+    border-radius: 100px;
+    margin: 5px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    display: inline-block;
+    box-sizing: border-box;
+    box-shadow: 1px 1px 3px;
+    transition: all .6s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.activeColorElem {
+    border: solid rgb(255 255 255 / 58%) 3px;
+    transform: scale(1.3);
+}
+
+.calPickBtn{
+    padding:15px 20px;
+    border-radius: 10px;
+    background-color: #f5f5f5;
+    border: 1px solid #d8d8d8;
+    box-shadow: 1px 1px 5px #d8d8d8;    
+    color:black;
+    display: inline-block;
+    font-size: 1.4rem;
+    margin: 10px;
+    transition: all .6s cubic-bezier(0.075, 0.82, 0.165, 1);
+    
+}
+.calPickBtn:hover{
+    background-color:#dbdbdb;
+    transform: scale(1.1);
+}
+#calendar_pick div, #calendar_pick{
+    text-align: center;
+}

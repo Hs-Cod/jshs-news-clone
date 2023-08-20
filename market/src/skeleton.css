@@ -1,0 +1,94 @@
+body {
+    width: 100%;
+    padding: 0;
+    font-family: 'NanumSquareRound', sans-serif !important;
+    background-color: rgb(255, 255, 255) !important;
+    background-repeat: no-repeat;
+    height: 100%;
+    margin:0;
+    background-attachment: fixed;
+}
+
+@font-face {
+    font-family: 'yg-jalnan';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+a{
+    text-decoration: none;
+    color:black !important;
+}
+a:hover{
+    text-decoration: none !important;
+}
+
+.jalnanFont {
+    font-family: 'yg-jalnan', sans-serif;
+}
+
+.titleDesc{
+    margin: 50px 0px 0px 40px;
+    transform: translateY(10px)
+}
+.titleDesc img{
+    width:40px;
+}
+
+#iconBanner{
+    width:20%;
+    margin-left:40%;
+    margin-top: 50px;
+}
+#accountsDiv{
+    position: fixed;
+    top:0;
+    right:0;
+    padding:10px;
+    z-index: 100;
+}
+#loginBtn{
+    width:140px;
+}
+
+/* ----------- FOOTER ------------ */
+/* ----------- FOOTER ------------ */
+/* ----------- FOOTER ------------ */
+/* ----------- FOOTER ------------ */
+.footer{
+    padding-top:50px;
+    background-color:rgb(36, 36, 36);
+}
+.footer.footer-light, .footer a {
+    color: #636363 !important;
+}
+
+.footer .icon-list-social-link {
+    text-decoration: none;
+    margin-right: 5px;
+}
+
+
+
+
+
+@media screen and (max-width:800px){
+    #iconBanner{
+        width:60% !important;
+        margin-left:20% !important;
+    }
+    #loginBtn{
+        width: 120px !important;
+    }
+}
+@media screen and (max-width:600px){
+    #iconBanner{
+        width:70% !important;
+        margin-left:15% !important;
+    }
+
+    #loginBtn{
+        width:100px !important;
+    }
+}

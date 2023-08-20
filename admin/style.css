@@ -1,0 +1,80 @@
+body {
+    position: relative;
+    width: 100%;
+    display: block;
+    padding:20px;
+    font-family: 'NanumSquareRound', sans-serif !important;
+    background-color: rgb(252, 252, 252);
+}
+
+body>* {
+    margin: auto;
+    display: block;
+    width:auto;
+    overflow: auto;
+}
+
+body>script {
+    display: none
+}
+#iconBanner{
+    height:100px;
+}
+#noticeContainer, #eventContainer, #poemContainer, #adContainer, #videoContainer, #marketContainer, #emergencyContainer{
+    display:none;
+}
+
+#infoDesc{
+ background-color: #d1ecf1;
+ border-radius: 0.25rem;
+ padding: 0.75rem 1.25rem;
+ color : #0c5460;
+ box-shadow: 2px 2px 5px #ccc;
+ margin-bottom: 10px;
+}
+
+.widgets{
+    display: none;
+}
+.input-group-text{
+    min-width: 110px;
+}
+.input-group-text{
+    width: 100%;
+    background-color: #ecf2f7;
+    border-right: none;
+}
+.card{
+    box-shadow: 2px 2px 5px #ccc;
+}
+.form-control{
+    border-left:none;
+}
+.btn{
+    width: 100%;
+    margin-left: 80%;
+}
+
+@media screen and (max-width:970px){
+    #infoContainer, #eventContainer, #noticeContainer, #poemContainer, #adContainer, #videoContainer, #marketContainer, #emergencyContainer{
+        width:80% !important;
+    }
+    #iconBanner{
+        height:100px !important;
+    }
+    h4{
+        font-size:1.2rem !important;
+    }
+}
+
+@media screen and (max-width:600px){
+    #infoContainer, #eventContainer, #noticeContainer, #poemContainer, #adContainer, #videoContainer, #marketContainer, #emergencyContainer{
+        width:100% !important;
+    }
+    #iconBanner{
+        height:80px !important;
+    }
+    #loginImg{
+        height:40px !important;
+    }
+}

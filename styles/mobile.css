@@ -1,0 +1,280 @@
+@media screen and (max-width: 1180px) {
+    #page_pop{
+        width: 40%;
+        transform: translate(9%, -50%);
+    }
+}
+
+@media screen and (max-width: 1047px) {
+    #navigator .menu_item {
+        margin: 10px -5px;
+    }
+    #page_pop{
+        width: 50%;
+        transform: translate(-3%, -50%);
+    }
+    .notice_item{
+        width: 160px;
+        height: 120px;
+    }
+    #weatherIcon{
+        width: 80px;
+        height: 80px;
+        transform: scale(1.3)
+    }
+}
+
+@media screen and (max-width: 860px) {
+    .menu_item span {
+        display: none;
+    }
+
+    .menu_item {
+        width: 49px;
+        margin: 10px auto !important;
+    }
+
+    #navigator {
+        text-align: center;
+        padding: 30px 20px;
+        width: 104px !important;
+        border-bottom-right-radius: 60px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .newsCard{
+        width: 48%;
+        display: inline-block;
+        margin-top: 20px;
+    }
+    #newsSection3{
+        margin-top: 30px;
+    }
+/* 
+    .eventCard{
+        width: 100% !important;
+    }
+    #page_utility .row div{
+        display: inline-block;
+        width: 50%;
+        margin-bottom: 10px;
+    } */
+    
+}
+@media screen and (max-width: 750px) {
+    #weatherWidget{
+        text-align: center;
+    }
+    #weatherIcon{
+        animation:none !important;
+        transform: translateY(-49px)
+    }
+    #weatherDescContainer{
+        transform: translateY(-57px);
+        padding-right: 0px;
+        display: block;
+    }
+}
+
+
+@media screen and (max-width: 600px) {
+    #panel {
+        flex-direction: column;
+
+    }
+
+    .page {
+        overflow-x: hidden;
+    }
+
+    #navigator {
+        width: 100% !important;
+        border-bottom-right-radius: 0px;
+        height: auto;
+        padding: 0px;
+
+    }
+
+    #navigator #icon {
+        width: 50px;
+        height: 50px;
+        margin: 10px 20px 10px 10px;
+    }
+
+    #navigator .menu_item {
+        display: inline-block;
+        margin: 5px !important;
+    }
+
+    #pages_container {
+        width: auto !important;
+        height: auto !important;
+        overflow-y: scroll;
+    }
+
+    #notice_container {
+        margin: 0 -30px !important;
+        padding: 0 30px !important;
+        overflow-x: scroll;
+        width: calc(100% + 60px) !important;
+    }
+    .notice_item{
+        width: 200px !important;
+
+    }
+
+    #widgets_container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    #weatherDescContainer{
+        transform: translateY(7px);
+        display: inline-block;
+    }
+
+    #videoWidget {
+        width: 100%;
+        height: 300px;
+        z-index: 2;
+
+    }
+
+    #videoWidgetImg {
+        aspect-ratio: 16/9;
+    }
+
+    #videoWidgetPlay {
+        height: 50px;
+        width: 50px;
+        top: 85%;
+        left: 85%;
+        transform: translate(-29%, -51%);
+
+    }
+
+    #weatherIcon{
+        animation: groom 9s infinite !important;
+    }
+    #weatherWidget {
+        text-align: center;
+    }
+    #weatherDescContainerW div{
+        padding-left: 5%;
+    }
+
+    #page_pop {
+        width: 80%;
+        transform: translate(0, -50%);
+        left: 10%;
+    }
+    #toolsWidget{
+        width: 100%;
+    }
+    #toolsWidget table {
+        width: 100%;
+    }
+
+    #toolsWidget tr {
+        display: inline-block;
+        width: 50%;
+
+    }
+
+    #toolsWidget td {
+        display: inline-block;
+        width: 48%;
+        text-align: center;
+        margin: auto;
+    }
+
+    .widget {
+        height: auto !important;
+    }
+
+
+    #cannonControl {
+        top: 0px;
+        left: 0px;
+        border-radius: 0px;
+        border-bottom-right-radius: 10px;
+        padding: 10px;
+        background-color: #ffffffab;
+        backdrop-filter: blur(10px);
+        max-width: 230px;
+    }
+
+    #cannonControl input, #cannonExcept {
+        font-size: 1rem !important;
+        width: auto !important;
+        height: auto !important;
+    }
+    #cannonControl .input-group-append{
+        height: auto !important;
+        font-size: 1rem !important;
+    }
+    #cannonControl .text-secondary{
+        font-size: 0.8rem !important;
+    }
+    #cannonControl button{
+        font-size: 1rem !important;
+        width: auto !important;
+        height: auto !important;
+
+    }
+
+    #cannonImg {
+        width: 200px;
+    }
+
+    #cannonBall {
+        width: 200px;
+        height: 200px;
+        font-size: 90px;
+    }
+    #cannonExit{
+        width: 30px;
+        height: 30px;
+        top: 10px;
+        right: 10px;
+    }
+
+    .eventCard {
+        margin-bottom: 20px;
+    }
+
+}
+
+@media screen and (max-width: 520px) {
+    .menu_item {
+        padding: 5px !important;
+        width: 36px;
+    }
+
+    .menu_item i {
+        margin: 0px !important;
+    }
+
+    #navigator #icon {
+        width: 40px;
+        height: 40px;
+        margin: 10px !important;
+    }
+    .calPickBtn{
+        padding:5px 10px;
+        font-size: 1rem;
+        margin: 7px;
+    }
+}
+
+@media screen and (max-width: 440px) {
+    #panel {
+        margin: 10px 0px !important;
+        border-radius: 20px 20px 0px 0px !important;
+    }
+}
+
+
+@media screen and (max-width: 1047px) {}
+
+@media screen and (max-width: 1047px) {}

@@ -1,0 +1,458 @@
+@font-face {
+  font-family: 'gibonFont';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.1/Cafe24Oneprettynight.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  font-family: "gibonFont", sans-serif;
+  /* font-weight: 400 700 800 300 */
+}
+
+input, textarea, select {
+  font-family: "gibonFont", sans-serif !important;
+}
+
+body {
+  align-content: center;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  width: 100%;
+  height: 100%; 
+  background-attachment: fixed;
+  background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+  font-family: 'gibonFont', sans-serif;
+}
+
+.transOne {
+  -webkit-transition: all 1s;
+  -moz-transition: all 1s;
+  -ms-transition: all 1s;
+  -o-transition: all 1s;
+  transition: all 1s;
+}
+
+.transShort {
+  -webkit-transition: all .5s;
+  -moz-transition: all .5s;
+  -ms-transition: all .5s;
+  -o-transition: all .5s;
+  transition: all .5s;
+}
+
+.round-border {
+  border-radius: 10px;
+  box-shadow: 0px 3px 5px rgba(128, 128, 128, 0.575);
+}
+
+
+.unselectable {
+  -moz-user-select: none;
+  /* These user-select properties are inheritable, used to prevent text selection */
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  /* From IE10 only */
+  user-select: none;
+  /* Not valid CSS yet, as of July 2012 */
+  -webkit-user-drag: none;
+  /* Prevents dragging of images/divs etc */
+}
+
+/* login */
+
+#login {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.textbox {
+  display: block;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 0px 1px 1px #bbb;
+  width: 90%;
+  height: 50px;
+  margin: 5px;
+  font-size: 20pt;
+  padding: 5px 15px;
+  text-align: center;
+}
+
+.fullscreen {
+  width: 100% !important;
+  height: 100% !important;
+  right: 0 !important;
+  top: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  border-radius: 0px !important;
+}
+
+#login #open, #login #signupOpen {
+  display: block;
+  background-color: rgb(83, 83, 83);
+  font-size: 20px;
+  padding: 15px;
+  width: 30%;
+  outline: 0;
+  color: white;
+  border: none;
+  margin: 10px auto;
+  cursor: pointer;
+}
+
+#login #open:hover {
+  background-color: rgb(68, 68, 68);
+}
+
+#open {
+  margin-top: 20px;
+}
+
+#login #signupOpen:hover {
+  background-color: rgb(156, 204, 101);
+  color: white;
+}
+
+#login #logout {
+  display: block;
+  background-color: rgb(255, 92, 92);
+  font-size: 20px;
+  padding: 15px;
+  margin-top: 10px;
+  margin-left: 65%;
+  width: 150px;
+  outline: 0;
+  color: white;
+  border:none;
+}
+
+#login #logout:hover {
+  background-color: rgb(255, 59, 59);
+  cursor: pointer;
+}
+
+#login #signup {
+  color: grey;
+  width: 95%;
+  font-size: 18px;
+  text-align: right;
+  padding: 0%;
+  margin: 4px 4px 10px 4px;
+}
+
+#login #signup:hover {
+  color: blue;
+}
+
+#login .textbox:focus {
+  outline: 0;
+  box-shadow: 0px 4px 3px 3px rgba(143, 143, 143, 0.267);
+}
+
+#login h1 {
+  font-size: 50px;
+  text-align: left;
+  color: rgb(70, 70, 70);
+  margin: -10px;
+  margin-bottom: 20px;
+  padding: 10px;
+  padding-left: 30px;
+  font-weight: 300;
+}
+
+#login #form, #login #formSignup, #login #formLogined {
+  box-shadow: 0px 10px 10px 0px rgb(170, 170, 170);
+  background-color: white;
+  padding: 20px;
+  position: fixed;
+}
+
+#form {
+  top: 50%;
+  right: 30%;
+  width: 40%;
+  margin-top: -200px;
+  height: 350px;
+}
+
+#formSignup {
+  top: 50%;
+  right: 30%;
+  width: 40%;
+  margin-top: -255px;
+  height: 460px !important;
+}
+
+#formLogined {
+  top: 50%;
+  right: 30%;
+  width: 40%;
+  margin-top: -320px;
+  height: 600px;
+}
+
+#login .levelDesc {
+  color: rgb(95, 95, 95);
+  font-size: 17px;
+}
+
+#login .text {
+  white-space: nowrap;
+  color: white;
+  font-size: 30px;
+  position: absolute;
+  overflow: hidden;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: transparent;
+  border-width: 0px;
+  outline: 0;
+  width: 100%;
+}
+
+#login #accountProfile {
+  width: 120px;
+  height: 120px;
+  border-radius: 235px 60px 235px 60px/60px 235px 60px 235px;
+  border: 3px solid grey;
+  margin-bottom: -70px;
+  object-fit: cover;
+}
+
+#login .desc {
+  color: red;
+  font-size: 15pt;
+  height: 0;
+  overflow: hidden;
+  width: 100%;
+  text-align: center;
+  margin: -2px;
+}
+
+#login .desc2 {
+  color: grey;
+  font-size: 13pt;
+  font-weight: 300;
+}
+
+#login .shake {
+  animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both;
+  transform: translate3d(0, 0, 0);
+}
+
+#closeLogined, #closeSignup {
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+#closeSignup img {
+  width: 50px;
+  margin: -13px -5px;
+}
+
+#closeSignup img:hover {
+  filter: none;
+  filter: grayscale(1);
+}
+
+#accountInfoTable {
+  text-align: left;
+  padding: 0 20px;
+}
+
+#accountInfoTable p {
+  margin-right: 20px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+#accountInfoTable h2 {
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+
+#accountInfoTable .language {
+  margin-top: 10px;
+}
+
+.language {
+  background-color: darkgrey;
+  font-size: 20px;
+  color: white;
+  outline: none;
+  /* border: 2px solid white; */
+  border: none;
+  padding: 9px;
+  border-radius: 5px;
+  box-shadow: 1px 1px 2px grey;
+  margin: 0;
+  cursor: pointer;
+}
+
+.language:hover {
+  background-color: grey;
+}
+
+.languageSelect, .languageSelect:hover {
+  background-color: rgb(88, 88, 88);
+}
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
+
+/* placeholder */
+
+#login ::-webkit-input-placeholder {
+  /* WebKit, Blink, Edge */
+  margin-left: 5px;
+  font-size: 20pt;
+}
+
+#login :-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  margin-left: 5px;
+  font-size: 20pt;
+}
+
+#login ::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  margin-left: 5px;
+  font-size: 20pt;
+}
+
+#login :-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  margin-left: 5px;
+  font-size: 20pt;
+}
+
+#login ::-ms-input-placeholder {
+  /* Microsoft Edge */
+  margin-left: 5px;
+  font-size: 20pt;
+}
+
+input[type="file"] {
+  display: none;
+}
+input[type="password"]::placeholder {
+  font-family: "gibonFont";
+}
+input[type="password"]{
+  font-family: 'Courier New', Courier, monospace !important;
+}
+
+.custom-file-upload {
+  background-color: #4be04b;
+  border: 4px solid white;
+  color: white;
+  display: inline-block;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  margin-left: 100px;
+  margin-top: 20px;
+  border-radius: 50px;
+}
+
+#profileDiv {
+  width: 120px;
+  margin-left: 100px;
+  transform: translateY(-30px);
+}
+
+/* ------------------------------------OTHERS------------------------------------ */
+
+/* Timer*/
+
+.loadingscreen {
+  background-color: #3838382a;
+  position: fixed;
+  min-height: 100%;
+  z-index: 2;
+}
+
+#loginLoading {
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  padding-top: 25%;
+  display: none;
+}
+
+.badge{
+  color: #fff;
+  background-color: #17a2b8;
+  display: inline-block;
+  padding : .25em .4em;
+  font-size: 70%;
+  vertical-align: baseline;
+  border-radius: 1rem;
+  text-decoration: none;
+}
+
+/* ------------------------------RESPONSIVE DEESIGN------------------------------ */
+
+@media screen and (max-width:1100px) {
+  #login #form, #login #formSignup, #login #formLogined {
+    width: 60%;
+    right: 18%;
+  }
+}
+
+@media screen and (max-width:600px) {
+  #login #form, #login #formSignup, #login #formLogined {
+    width: 80%;
+    right: 6%;
+  }
+  #login #logout {
+    padding: 8px;
+    width: 100px;
+  }
+  #login #accountProfile, #profileDiv {
+    width: 100px;
+    height: 100px;
+  }
+  .custom-file-upload {
+    width: 30px;
+    height: 30px;
+    margin-left: 85px;
+    margin-top: 25px;
+    ;
+  }
+  .custom-file-upload img {
+    width: 20px !important;
+  }
+  #login h1 {
+    margin-bottom: 0px;
+  }
+  .textbox {
+    padding: 2px 10px;
+    height: 45px;
+  }
+  #login #open, #login #signupOpen {
+    padding: 8px;
+    margin: 20px auto 10px auto;
+  }
+}

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" Content="text/html; charset=utf-8">
+    <meta name="description" content="전곽의 모든 것. 전곽일보 하나만으로.">
+    <meta name="keywords" content="jshs,jeonnam,전남과학고,전곽,전곽일보,급식,전곽 급식,huzi,huzikim,munzii">
+    <meta property="og:image" content="src/icon_preview.webp">
+    <meta property="og:title" content="전곽일보">
+    <meta property="og:description" content="전곽의 모든 것. 전곽일보 하나만으로.">
+    <link rel="canonical" href="https://jshs.munzii.com/">
+    <link rel="shortcut icon" href="../src/icon_small.webp">
+
+    <!-- theme color -->
+    <meta name="theme-color" content="#f75127">
+    <meta name="msapplication-navbutton-color" content="#f75127">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#f75127">
+    <!-- script -->
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"
+        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+    <script>
+        var isIE = /*@cc_on!@*/false || !!document.documentMode;
+        if (isIE) {
+            alert("인터넷 익스플로러는 지원하지 않습니다. 크로미움 브라우저로 접속해 주세요.\nex) Google Chrome, Naver Whale, Microsoft Edge");
+            document.write('<h2><b>크롬</b>으로 접속해주세요.<br>Please. Enter with <b>Chrome</b>.<h2><style type="text/undefined">');
+            history.go(-1);
+        }
+    </script>
+
+    <title>전곽일보 미니기자단</title>
+
+    <link rel="stylesheet" type="text/css" href="style.css?v=1.0.2c">
+    <script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-auth.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@editorjs/editorjs@latest"></script>
+
+
+</head>
+
+<body>
+
+    <div id="news">
+        <br>
+        <a href="javascript:history.go(0)"><img id="banner" src="banner.png"></a><br>
+        <div id="container">
+
+            <div id="account" class="card">
+                <table>
+                    <tr>
+                        <td><img id="accountImg"></td>
+                        <td><span id="nick"></span> 기자님, 환영합니다.<br><span id="desc"></span><br>
+                            <a style="font-size: 0.9rem;" href="https://jshs.munzii.com/login/">계정 설정</a>
+                        </td>
+                        <td><button id="logout">로그아웃</button></td>
+                    </tr>
+                </table>
+            </div>
+            <div id="widgets" class="card">
+                <table>
+                    <tr>
+                        <td style="width: 33%; border-right: 1px solid grey;">
+                            작성한 기사 <span id="totalNews" class="badge">0</span>
+                        </td>
+                        <td style="width: 33%; border-right: 1px solid grey;">
+                            좋아요 <span id="totalLike" class="badge">0</span>
+                        </td>
+                        <td>
+                            <a style="width: 100%;" href="javascript:makeNews()">+ 기사 작성하기</a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div id="newArticle" class="card">
+                <div><input id="newTitle" placeholder="제목"></div>
+                <div>
+                    <div id="newDesc" contentEditable="true" placeholder="내용"></div>
+                </div>
+                <div id="attachDesc">* 등록된 첫번째 사진은 미리보기 사진으로 사용됩니다.<br>* {사진1} 의 형태로 사진을 본문에 추가할 수 있습니다.</div>
+                <div id="attach">
+                    <input id="addAttachInput" type="file" />
+                    <a href="javascript:addAttachment()"><img src="attach.png"></a>
+                </div>
+                <div id="category">
+                    <input type="radio" name="category" value="0"><label>#전곽일보</label>
+                    <input type="radio" name="category" value="1"><label>#학교생활/학생회</label>
+                    <input type="radio" name="category" value="2"><label>#과학/기술</label>
+                    <input type="radio" name="category" value="3"><label>#IT/게임</label>
+                    <input type="radio" name="category" value="4"><label>#디자인/뷰티</label>
+                    <input type="radio" name="category" value="5"><label>#자연/동물</label>
+                    <input type="radio" name="category" value="6"><label>#정치/경제/법률</label>
+                    <input type="radio" name="category" value="7"><label>#연예/엔터</label>
+                    <input type="radio" name="category" value="8"><label>#스포츠/건강</label>
+                    <input type="radio" name="category" value="9"><label>#기타</label>
+
+
+                </div>
+                <div id="newArticleTools">
+                    <a href="javascript:removeSaveArticle()" id="saveBtn">임시 파일 삭제</a> |
+                    <a href="javascript:saveArticle(true)" id="saveBtn">임시저장</a> |
+                    <a href="javascript:postArticle()" id="postBtn">등록하기</a>
+                </div>
+                <br>
+            </div>
+
+            <!-- <br> -->
+            <!-- <span id="newsDesc">기사 목록</span> -->
+
+            <div id="newsContainer">
+                <span id="noNews" style="color:grey; padding: 10px;">작성한 기사가 없습니다.</span>
+            </div>
+
+            <div id="articleContainer"></div>
+        </div>
+        <footer>
+            munzii. All Rights Reserved.
+            <br>Keep in touch with <a href="mailto:huzi@kakao.com"><b>huzi@kakao.com</b></a> or <a href="https://m.me/jshsnews"><b>Messenger</b></a>
+        </footer>
+    </div>
+    <div class="loadingscreen" id="loginLoading">
+        <div class="typing_loader  center"></div>
+    </div>
+
+    <script src="functions.js?v=1.0.7"></script>
+    <script src="editor.js?v=1.0.7"></script>
+</body>
+
+</html>

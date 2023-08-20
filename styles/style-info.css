@@ -1,0 +1,10 @@
+#page_info, #page_info a, #page_info svg{
+    color:rgb(150, 150, 150);
+}
+#page_info{
+    padding:20px;
+}
+#page_info .bold{
+    color: rgb(65, 65, 65);
+    font-weight: bold;
+}

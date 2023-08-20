@@ -1,0 +1,26 @@
+/* CALENDAR */
+.section:nth-child(3) {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--paddingTop) var(--paddingRight);
+}
+
+#jcalContainer{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    box-shadow: 3px 2px 20px 0px #00000030;
+    border-radius: var(--borderRadius);
+    z-index: 2;
+    overflow: hidden;
+}
+#jcalContainer iframe{
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff36;
+    border: none;
+
+}
+

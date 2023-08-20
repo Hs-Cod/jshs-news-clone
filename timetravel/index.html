@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html>
+<!--
+  전곽일보 made by HuziKim
+  https://huzi.kim/jshs
+
+  Join us on Facebook
+  https://fb.com/jshsnews
+-->
+
+<head>
+
+    <!-- meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" Content="text/html; charset=utf-8">
+    <meta name="description" content="전곽의 모든 것. 전곽일보 하나만으로.">
+    <meta name="keywords" content="jshs,jeonnam,전남과학고,전곽,전곽일보,급식,전곽 급식,huzi,huzikim,munzii">
+    <meta property="og:image" content="src/icon_preview.png">
+    <meta property="og:title" content="Time Travel - 전곽일보">
+    <meta property="og:description" content="전곽의 모든 것. 전곽일보 하나만으로.">
+    <link rel="canonical" href="https://jshs.munzii.com/">
+    <title>Time Travel - 전곽일보</title>
+    <link rel="shortcut icon" href="../src/icon_small.png">
+
+    <!-- theme color -->
+    <meta name="theme-color" content="#f75127">
+    <meta name="msapplication-navbutton-color" content="#f75127">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#f75127">
+    <!-- script -->
+    <script src="../src/jquery.js"></script>
+    <script src="../src/jquery-ui.js"></script>
+    <script>
+        var isIE = /*@cc_on!@*/false || !!document.documentMode;
+        if (isIE) {
+            alert("인터넷 익스플로러는 지원하지 않습니다. 크로미움 브라우저로 접속해 주세요.\nex) Google Chrome, Naver Whale, Microsoft Edge");
+            document.write('<h2><b>크롬</b>으로 접속해주세요.<br>Please. Enter with <b>Chrome</b>.<h2><style type="text/undefined">');
+            history.go(-1);
+        }
+    </script>
+
+    <script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-firestore.js"></script>
+
+    <!-- css -->
+    <link rel="stylesheet" type="text/css" href="style.css?ver=1.0.5">
+    <link rel="stylesheet" href="https://munzii.com/src/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/earlyaccess/nanumpenscript.css">
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic" rel="stylesheet">
+</head>
+
+<body>
+    <script src="https://use.typekit.net/bkt6ydm.js"></script>
+    <script>try { Typekit.load({ async: true }); } catch (e) { }</script>
+    <img src="src/icon_history/banner.png" style="width:100%;" id="banner">
+
+    <div class="container-fluid" style="padding-left:30px;">
+        <div class="row example-split">
+            <div class="col-md-12 example-title">
+                <h2>오늘의 전곽일보가 만들어지기까지</h2>
+                <p>Updates</p>
+            </div>
+            <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2">
+                <ul class="timeline timeline-split">
+                    <li class="timeline-item period" data-aos="fade-right">
+                        <div class="timeline-info"></div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h2 class="timeline-title">2018년</h2>
+                        </div>
+                    </li>
+                    <li class="timeline-item" data-aos="fade-right">
+                        <div class="timeline-info">
+                            <span>August 2, 2018</span>
+                        </div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">전곽NEWS 탄생</h3>
+                            <p>오리지널 HUZIKIM 스타일의 초록색 바탕에 만들어진 초기의 전곽일보는 이름이 전곽NEWS였답니다. 조금은 촌스러운 아이콘이긴 했지만 전곽 분위기가 몰씬
+                                느껴지는 아이콘이였죠. 전곽NEWS 때부터 본 사람 있나요?<br>
+                                <img src="src/icon_history/jshsnews.png" width="50%">
+                            </p>
+                        </div>
+                    </li>
+                    <li class="timeline-item" data-aos="fade-right">
+                        <div class="timeline-info">
+                            <span>August 13, 2018</span>
+                        </div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">전곽일보로 이름 변경</h3>
+                            <p>고민 끝에 전곽을 알리는 신문이라는 뜻의 '전곽일보'로 이름을 변경했습니다. 아이콘도 그에 맞춰서 신문 느낌으로 만들어졌습니다. 이 아이콘은 2018-2019년
+                                까지 사랑받게 되죠.</p>
+                            <img src="src/icon_history/icon_basic.png" width="50%"></p>
+                        </div>
+                    </li>
+
+                    <li class="timeline-item" data-aos="fade-right">
+                        <div class="timeline-info">
+                            <span>August 17, 2018</span>
+                        </div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">'오늘의 영상' 서비스 시작</h3>
+                            <p>후지킴이 추천해 주는 영상을 바로바로 볼 수 있는 디스코 탭을 추가했습니다. 이곳에서 추천 유튜브 영상 또는 이벤트 광고가 이루어졌습니다. 2019년부터는
+                                사실상 종료된 서비스입니다.</p>
+                            <img src="src/icon_history/todayvideo.png" width="50%"></p>
+                        </div>
+                    </li>
+
+                    <li class="timeline-item" data-aos="fade-right">
+                        <div class="timeline-info">
+                            <span>November 1, 2018</span>
+                        </div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">대포.온라인 서비스 시작</h3>
+                            <p>설마 대포를 모르시는 분이 있을까요?<br>펑! 소리가 제맛인 대포를 온라인에서 만날 수 있게 되었습니다.<br>하지만!! 2021년 부터는 웹상에서 플래시
+                                사용이 금지된다고 합니다 ㅠ<br><span style='color:grey'>2021년에는 다른 형태의 대포가 나타날 수도?!</span></p>
+                            <img src="src/icon_history/daepo.png" width="50%"></p>
+                        </div>
+                    </li>
+
+
+                    <li class="timeline-item" data-aos="fade-right">
+                        <div class="timeline-info">
+                            <span>December 8, 2018</span>
+                        </div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">전곽일보 마스코트 : 꽈기 탄생</h3>
+                            <p>전곽일보를 대표하는 귀여운 마스코트 꽈기가 탄생합니다!<br>꽃송이와 비슷한 얼굴을 가진 꽈기는 이후에 페이스북 페이지에서 자주 등장하게 되죠.</p>
+                            <img src="src/icon_history/ggwak.png" width="50%"></p>
+                        </div>
+                    </li>
+                    <li class="timeline-item" data-aos="fade-right">
+                        <div class="timeline-info">
+                            <span>December 8, 2018</span>
+                        </div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">전곽일보 페이스북 페이지</h3>
+                            <p>더 빠른 정보 전달을 위해 페이스북 페이지가 만들어졌습니다.<br><a target="_blank"
+                                    href="https://www.facebook.com/jshsnews/">전곽일보 페이스북 페이지 바로가기</a></p>
+                            <img src="src/icon_history/fb.png" width="50%"></p>
+                        </div>
+                    </li>
+
+                    <li class="timeline-item" data-aos="fade-right">
+                        <div class="timeline-info">
+                            <span>December 11, 2018</span>
+                        </div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">전곽일보 채팅 서비스 시작</h3>
+                            <p>조금 더 즐거운 사이트를 만들고자 채팅 서비스를 시작했습니다.<br>이름도 마음대로 지정할 수 있어서인지.. 상황극을 하는 사람도 있더군요 :D<br>채팅
+                                서비스는 2019년 2월부터 종료되어 지금은 볼 수 없답니다.</p>
+                            <img src="src/icon_history/chat.png" width="50%"></p>
+                        </div>
+                    </li>
+
+
+                    <li class="timeline-item period">
+                        <div class="timeline-info"></div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h2 class="timeline-title">2019년</h2>
+                        </div>
+                    </li>
+
+
+                    <li class="timeline-item" data-aos="fade-right">
+                        <div class="timeline-info">
+                            <span>January 14, 2019</span>
+                        </div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">조회수 1만회 달성</h3>
+                            <p>전곽일보 조회수가 1만회를 달성한 날이었습니다!<br>항상 많은 관심 가져주셔서 감사합니다..ㅎ</p>
+                            <img src="src/icon_history/man.png" width="50%"></p>
+                        </div>
+                    </li>
+
+
+                    <li class="timeline-item" data-aos="fade-right">
+                        <div class="timeline-info">
+                            <span>May 6, 2019</span>
+                        </div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">전곽Calendar 서비스 시작</h3>
+                            <p>하루하루가 바쁜 전곽인들에게 일정관리는 필수!<br>누구나 볼 수 있고 수정할 수 있는 개방형 일정관리 플랫폼인 '전.캘'을 통해 서로 챙겨주는 전곽인의 모습을
+                                기대하며 만들었습니다.</p>
+                            <img src="src/icon_history/jcal-ad.png" width="50%"></p>
+                        </div>
+                    </li>
+
+
+
+                    <li class="timeline-item" data-aos="fade-right">
+                        <div class="timeline-info">
+                            <span>June 2, 2019</span>
+                        </div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">전곽Calendar 서비스 통합</h3>
+                            <p>다른 링크로 들어가야만 확인할 수 있었던 전.캘 서비스를 전곽일보와 통합했습니다.<br>급식을 보다가도 손 쉽게 일정을 확인할 수 있게 되었죠.</p>
+                            <img src="src/icon_history/news-to-cal.png" width="40%"></p>
+                        </div>
+                    </li>
+
+                    <li class="timeline-item" data-aos="fade-right">
+                        <div class="timeline-info">
+                            <span>July 30, 2019</span>
+                        </div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">과구리 서비스 제공</h3>
+                            <p>자주 방문하는 전곽일보를 통해 과구리 소식 또한 빠르게 접할 수 있게 되었습니다.<br>학생회 공지사항, 청원, 동아리 활동, 분실물 등을 확인할 수
+                                있습니다.<br>나머지는 과구리에서! <a target="_blank" href="https://jshsus.kr">과구리 바로가기</a></p>
+                            <img src="src/icon_history/jshsus.png" width="50%"></p>
+                        </div>
+                    </li>
+
+                    <li class="timeline-item period">
+                        <div class="timeline-info"></div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h2 class="timeline-title">2020년</h2>
+                        </div>
+                    </li>
+                    
+                    <li class="timeline-item" data-aos="fade-right">
+                        <div class="timeline-info">
+                            <span>August 20, 2020</span>
+                        </div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">ALL-NEW 전곽일보 OPEN!!</h3>
+                            <p>기능이 하나하나 추가됨에 따라 복잡해진 전곽일보를 리뉴얼한 ALL-NEW 전곽일보를 오픈했습니다. 1주일 간의 베타테스트를 통해 부족한 부분을 보완했으며, 플래시 지원 종료에 따라 HTML5를 지원하는 새로운 온라인 대포 서비스가 시작되었습니다.<br>
+                            <img src="src/icon_history/allnew_ad.png" width="40%"><br>
+                            <img src="src/icon_history/allnew.png" width="50%"></p>
+                        </div>
+                    </li>
+                    
+                    <li class="timeline-item" data-aos="fade-right">
+                        <div class="timeline-info">
+                            <span>October 11, 2020</span>
+                        </div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">미니 게임 서비스</h3>
+                            <p>자신의 반응속도를 테스트할 수 있는 미니 게임과 함께 지금은 사라진(2021.03.18.) 퍼즐 게임도 만들어졌습니다. 얼마 후에는 랭킹 제도가 도입되어서 친구들의 경쟁이 있기도 했습니다.<br>
+                            <img src="src/icon_history/speed.jpg" width="50%"><br>
+                            <img src="src/icon_history/puzzle.jpg" width="50%"></p>
+                        </div>
+                    </li>
+                    
+                    
+                    <li class="timeline-item period">
+                        <div class="timeline-info"></div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h2 class="timeline-title">2020년</h2>
+                        </div>
+                    </li>
+
+                    <li class="timeline-item" data-aos="fade-right">
+                        <div class="timeline-info">
+                            <span>March 17, 2021</span>
+                        </div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">munzii<sup>©</sup>로 서비스 이전</h3>
+                            <p>시스템 개편과 관리상의 이유로 익숙했던 HuziKIM을 떠나 munzii로 이사를 왔습니다! 이전 링크는 2021.6.30. 부터 접근이 불가하니 이제부터는 jshs.munzii.com 으로 접속해주세요~<br>
+                            <img src="src/icon_history/allnew_ad.png" width="50%"></p>
+                        </div>
+                    </li>
+
+
+                    <li class="timeline-item period">
+                        <div class="timeline-info"></div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h2 class="timeline-title">현재</h2>
+                        </div>
+                    </li>
+                    <li class="timeline-item" data-aos="fade-right">
+                        <div class="timeline-info">
+                            <span>Today</span>
+                        </div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">전곽일보는 오늘도 여러분을 환영합니다.</h3>
+                            <p>항상 응원합니다 :)</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="container-fluid">
+        <div class="row example-split">
+            <div class="col-md-12 example-title">
+                <h2>아이콘 변천사</h2>
+                <p>Icon Gallery</p>
+            </div>
+            <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2">
+                <ul class="timeline timeline-split">
+                    <li class="timeline-item period">
+                        <div class="timeline-info"></div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h2 class="timeline-title">2018년</h2>
+                        </div>
+                    </li>
+                    <li class="timeline-item" data-aos="fade-right">
+                        <div class="timeline-info">
+                            <span>August 2, 2018</span>
+                        </div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">전곽NEWS</h3>
+                            <img src="src/icon_history/jshsnews.png" width="50%"></p>
+                        </div>
+                    </li>
+                    <li class="timeline-item" data-aos="fade-right">
+                        <div class="timeline-info">
+                            <span>August 13, 2018</span>
+                        </div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">전곽일보</h3>
+                            <img src="src/icon_history/icon_basic.png" width="50%"></p>
+                        </div>
+                    </li>
+
+
+                    <li class="timeline-item" data-aos="fade-right">
+                        <div class="timeline-info">
+                            <span>September 24, 2018</span>
+                        </div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">추석</h3>
+                            <img src="src/icon_history/chuseok_banner.png" width="50%"></p>
+                        </div>
+                    </li>
+
+                    <li class="timeline-item" data-aos="fade-right">
+                        <div class="timeline-info">
+                            <span>December 8, 2018</span>
+                        </div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">2018 겨울</h3>
+                            <img src="src/icon_history/icon_winter.png" width="50%"></p>
+                        </div>
+                    </li>
+
+
+                    <li class="timeline-item period">
+                        <div class="timeline-info"></div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h2 class="timeline-title">2019년</h2>
+                        </div>
+                    </li>
+
+
+                    <li class="timeline-item" data-aos="fade-right">
+                        <div class="timeline-info">
+                            <span>March 17, 2019</span>
+                        </div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">2019 봄</h3>
+                            <img src="src/icon_history/icon_spring.png" width="50%"></p>
+                        </div>
+                    </li>
+
+
+
+                    <li class="timeline-item" data-aos="fade-right">
+                        <div class="timeline-info">
+                            <span>June 2, 2019</span>
+                        </div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">2019 여름</h3>
+                            <img src="src/icon_history/icon_summer.png" width="50%"></p>
+                        </div>
+                    </li>
+
+
+                    <li class="timeline-item" data-aos="fade-right">
+                        <div class="timeline-info">
+                            <span>October 31, 2019</span>
+                        </div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">2019 할로윈</h3>
+                            <img src="src/icon_history/icon_halloween.png" width="50%"></p>
+                        </div>
+                    </li>
+
+                    <li class="timeline-item" data-aos="fade-right">
+                        <div class="timeline-info">
+                            <span>November 5, 2019</span>
+                        </div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">2019 겨울</h3>
+                            <img src="src/icon_history/icon_winter_2.png" width="50%"></p>
+                        </div>
+                    </li>
+                    <li class="timeline-item" data-aos="fade-right">
+                        <div class="timeline-info">
+                            <span>December 8, 2019</span>
+                        </div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">전곽일보 Renewal</h3>
+                            <img src="src/icon_history/newIcon.png" width="50%"></p>
+                        </div>
+                    </li>
+
+                    <li class="timeline-item period">
+                        <div class="timeline-info"></div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h2 class="timeline-title">2020년</h2>
+                        </div>
+                    </li>
+
+                    <li class="timeline-item" data-aos="fade-right">
+                        <div class="timeline-info">
+                            <span>February 22, 2020</span>
+                        </div>
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">전곽일보 2020</h3>
+                            <img src="src/icon_history/newnewicon.png" width="50%"></p>
+                        </div>
+                    </li>
+
+
+                </ul>
+            </div>
+        </div>
+
+    </div>
+    <div class="jumbotron py-3 mb-0 mt-4 nanumFont" id="footer" data-aos="flip-up">
+        <div id="footerdiv" class="row mt-2">
+            <span>
+                <img src="../src/icon.png" class="mr-2" height="60">
+            </span>
+            <span id="footerSpan" class="text-left ml-3" style="color:grey;">Copyright © munzii. All Rights
+                Reserved.<br>
+                <span style="color:rgb(77, 77, 77);"><b>전곽인이라면? <a href="https://jshs.munzii.com">전곽일보</a></b></span><br>
+            </span>
+        </div>
+    </div>
+    <script src="functions.js?ver=2.0.2"></script>
+</body>

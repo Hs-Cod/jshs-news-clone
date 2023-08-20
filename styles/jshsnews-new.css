@@ -1,0 +1,287 @@
+@import url('https://fonts.googleapis.com/earlyaccess/jejumyeongjo.css');
+
+/*
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap');
+@font-face {
+    font-family: 'gibonFont';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.1/Cafe24Oneprettynight.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+*/
+*{
+    font-family: 'Jeju Myeongjo', serif;
+}
+
+@font-face {
+    font-family: 'boldFont';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/TTTogetherA.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+body{
+    background-image: linear-gradient(120deg, #a6c0fe 0%, #f68084 100%);
+    transition: background-image 1s;
+}
+
+
+/**/
+#fullpage{
+    width: 100vw;
+    height: 100vh;
+}
+
+
+/* ROOT */
+.card {
+    background-color: #FFFD !important;
+}
+
+
+/*//////////////////////Cannon//////////////////////*/
+
+#cannonContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 6;
+    background-image: url('src/new/cannon-background.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: none;
+}
+
+#cannonImg {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    z-index: 7;
+    width: 400px;
+}
+
+#cannonImg:active {
+    filter: brightness(0.9)
+}
+
+#cannonBall {
+    position: fixed;
+    background-image: url('src/new/cannon-ball.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    outline: none;
+    border: none;
+    width: 100px;
+    height: 100px;
+    bottom: 200px;
+    right: 220px;
+    background-color: transparent;
+    color: white;
+    opacity: 0;
+    font-size: 40px;
+    z-index: 8;
+}
+
+#cannonControl {
+    position: fixed;
+    top: 50px;
+    left: 50px;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: white;
+    box-shadow: 0 0.15rem 1.75rem 0 rgba(31, 45, 65, 0.473);
+}
+
+#cannonControl input {
+    width: 100px;
+    height: 100px;
+    font-size: 50px;
+}
+
+#cannonExit {
+    position: fixed;
+    background-image: url('src/new/exit.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    outline: none;
+    border: none;
+    width: 50px;
+    height: 50px;
+    top: 20px;
+    right: 20px;
+    background-color: transparent;
+}
+
+#cannonExit:hover {
+    cursor: pointer;
+    filter: brightness(0.9);
+}
+
+#cannonExcept {
+    width: 100% !important;
+    height: 30px !important;
+    font-size: 20px !important;
+    margin: -5px 0 10px 0;
+}
+
+
+/*//////////////////////Tools//////////////////////*/
+
+#rightNav {
+    position: fixed;
+    right: 0px;
+    top: 47%;
+    z-index: 4;
+}
+
+#rightNav img {
+    width: 40px;
+    opacity: 0.6;
+}
+
+#rightNav:hover~#tools, #tools:hover {
+    right: -10px;
+}
+
+#rightNav:hover {
+    cursor: pointer;
+}
+
+#tools {
+    background-color: white;
+    background: linear-gradient( to right, rgb(144, 221, 231), rgb(144, 221, 231) 3%, rgb(255, 255, 255) 3%, rgb(255, 255, 255) 100%);
+    border-radius: 15px;
+    position: fixed;
+    height: 60%;
+    width: 600px;
+    top: 20%;
+    right: -610px;
+    box-shadow: 0px 0px 20px 0px #2020208a;
+    padding: 10px 10px 10px 35px;
+    overflow-y: scroll;
+    z-index: 5;
+    font-family: 'boldFont';
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-around;
+}
+.break{
+    flex-basis: 100%;
+    height:0;
+}
+
+#tools button {
+    border-radius: 15px;
+    height: 45px;
+    width: 45px;
+    background-color: rgb(255, 255, 255);
+    font-size: 20px;
+    outline: none;
+    margin: 3px;
+    border-style: none;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
+    /* box-shadow: 3px 2px 10px 0px #83838359; */
+    border: 1px solid #eeeeee;
+    -webkit-transition: all .3s !important;
+    -moz-transition: all .3s !important;
+    -ms-transition: all .3s !important;
+    -o-transition: all .3s !important;
+    transition: all .3s !important;
+}
+
+#tools .round {
+    border-radius: 30px !important;
+}
+
+#tools button:hover {
+    transform: scale(1.1);
+}
+
+#tools .scDesc {
+    box-shadow: none;
+    background-color: #a1abb9;
+    color: white;
+    font-size: 13px;
+    height: auto;
+    padding: 3px 0px;
+    border-radius: 5px;
+}
+
+#tools .scDesc:hover {
+    transform: none;
+    cursor: initial;
+}
+
+
+/* ---------UTILITY----------*/
+
+.hidden {
+    display: none !important;
+}
+
+.transOne {
+    -webkit-transition: all 1s !important;
+    -moz-transition: all 1s !important;
+    -ms-transition: all 1s !important;
+    -o-transition: all 1s !important;
+    transition: all 1s !important;
+}
+
+.transShort {
+    -webkit-transition: all .5s !important;
+    -moz-transition: all .5s !important;
+    -ms-transition: all .5s !important;
+    -o-transition: all .5s !important;
+    transition: all .5s !important;
+}
+
+.transFast {
+    -webkit-transition: all .1s !important;
+    -moz-transition: all .1s !important;
+    -ms-transition: all .1s !important;
+    -o-transition: all .1s !important;
+    transition: all .1s !important;
+}
+
+
+
+
+/* ----------- Loading --------------*/
+#loadingContainer{
+    position:fixed;
+    top:0px;
+    left:0px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    z-index: 100;
+    background-image: linear-gradient(120deg, #899fd3 0%, #cc6a6d 100%);
+    
+    animation-fill-mode: forwards; 
+}
+
+#loadingIcon{
+    position:fixed;
+    width:120px;
+    height:120px;
+    padding: 35px;
+}
+#loadingCircle{
+    animation:spin 2s linear infinite;
+}
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+@keyframes fadeout { from { opacity: 1; } to { opacity: 0; } }
+
+
+/*section*/
+
+.section{
+    overflow-y: hidden;
+}

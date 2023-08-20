@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/earlyaccess/jejumyeongjo.css');
+
+*{
+    font-family: 'Jeju Myeongjo', serif;
+}
+
+@font-face {
+    font-family: 'boldFont';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/TTTogetherA.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+#article{
+    background-color: white;
+    border-radius: 5px;
+    display: none;
+    padding: 40px;
+}
+
+#articleContent img{
+    width:100% !important;
+    padding: 10px 10% !important;
+    margin: 0px !important;
+}
+
+#articleContent{
+    line-height: 150%;
+}
+
+#likeBtn{
+    color:black;
+    font-family: 'boldFont';
+    text-decoration:none;
+}
+
+/* FOOTER & HEADER */
+
+footer .footer-top, footer .footer-bottom {
+    background-color: black;
+}
+
+footer svg {
+    fill: #ffffff !important;
+    margin-right: 10px;
+}
+
+footer a {
+    color: grey;
+}
+
+header {
+    padding-top: 30px;
+    background: none;
+}
+
+header .navbar-bottom {
+    padding-bottom: 0px;
+}
+
+header .navbar .navbar-brand img {
+    width: 300px;
+}
+
+a, a:hover {
+    text-decoration: none;
+}
+
+.footer-logo{
+    height: 35px;
+    filter: brightness(100);
+}
+
+#navbar .badge{
+    margin-top: 10px;
+}
+
+.img-fluid{
+    border-radius: 5px;
+}
+
+@media (max-width:767px) {
+    header {
+        padding-top: 10px;
+    }
+    header .navbar .navbar-brand img {
+        width: 200px;
+    }
+    #article{
+        padding: 30px 20px;
+    }
+}
+
+#newsList{
+    height: 100%;
+}
+
+#newsList div {
+    padding: 10px;
+    border-bottom: 1px solid rgba(223, 223, 223, 0.637);
+}
+
+#newsList .author {
+    font-size: 0.9rem;
+    color: grey;
+    display: block;
+    font-weight: initial;
+}
+
+#newsList div:hover {
+    background-color: rgba(241, 241, 241, 0.493);
+}
+
+
+#articleContent iframe{
+    width: 50% !important;
+    aspect-ratio: 16/9 !important;
+    border-radius: 10px !important;
+    margin-left: 25% !important;
+}
+
+@media screen and (max-width:900px){
+    iframe{
+        width: 70%;
+        border-radius: 10px;
+        margin-left: 15%;
+    }
+}
+
+@media screen and (max-width:750px){
+    iframe{
+        width: 90%;
+        margin-left: 5%;
+    }
+}
+
+
+
+
+@media screen and (max-width:575px){
+    #newsList{
+        margin-right: 0px !important;
+        margin-bottom: 1.5rem;
+    }
+}

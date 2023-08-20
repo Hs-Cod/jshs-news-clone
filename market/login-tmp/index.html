@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<!--
+  전곽일보 made by HuziKim
+  https://jshs.munzii.com
+
+  Join us on Facebook
+  https://fb.com/jshsnews
+-->
+
+<head>
+  <!-- meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Type" Content="text/html; charset=utf-8">
+  <meta name="description" content="전곽의 모든 것. 전곽일보 하나만으로.">
+  <meta name="keywords" content="jshs,jeonnam,전남과학고,전곽,전곽일보,급식,전곽 급식,huzi,huzikim,munzii">
+  <meta property="og:image" content="../src/icon_preview.png">
+  <meta property="og:title" content="전곽일보">
+  <meta property="og:description" content="전곽의 모든 것. 전곽일보 하나만으로.">
+  <link rel="canonical" href="https://jshs.munzii.com/">
+  <link rel="shortcut icon" href="../../src/icon_small.png">
+
+  <!-- theme color -->
+  <meta name="theme-color" content="#f75127">
+  <meta name="msapplication-navbutton-color" content="#f75127">
+  <meta name="apple-mobile-web-app-status-bar-style" content="#f75127">
+  <title>배푸는 민족</title>
+
+
+  <!-- script -->
+  <script src="../../src/jquery.js"></script>
+  <script>
+    var isIE = /*@cc_on!@*/false || !!document.documentMode;
+    if (isIE) {
+      alert("인터넷 익스플로러는 지원하지 않습니다. 크로미움 브라우저로 접속해 주세요.\nex) Google Chrome, Naver Whale, Microsoft Edge");
+      document.write('<h2><b>크롬</b>으로 접속해주세요.<br>Please. Enter with <b>Chrome</b>.<h2><style type="text/undefined">');
+      history.go(-1);
+    }
+  </script>
+
+
+
+  <!-- css -->
+  <link rel="stylesheet" type="text/css" href="style.css?ver=1.1.4">
+  <link rel="stylesheet" type="text/css" href="../src/skeleton.css">
+  <link rel="stylesheet" href="../../src/bootstrap.css">
+  <link rel="stylesheet" href="https://cdn.rawgit.com/innks/NanumSquareRound/master/nanumsquareround.min.css">
+
+</head>
+
+<body>
+
+  <a href="https://jshs.munzii.com/market"><img src="https://jshs.munzii.com/market/src/icon.png" id="iconBanner"></a>
+  <br>
+
+  <h1 class="jalnanFont titleDesc"><a href="javascript:history.go(-1)"><img src="../src/backward.png"></a> #LOGIN</h1>
+  
+  <div style="width: 100%;">
+    <div id="signinDiv" style="display: none;">
+      <h6 style="font-family: 'NanumSquareRound'"><b><big>환영합니다!</big></b><br><br>'배푸는 민족' 서비스를 이용하기 위해서는 이름과 인증 코드가 필요합니다.</h6><br>
+      <span>이름</span>
+      <input id="signinName">
+      <span>인증 코드</span>
+      <input id="signinCode">
+      <button onclick="signin()">회원가입</button>
+    </div>
+    <div id="infoDiv" style="display: none;">
+      <span>이름</span>
+      <input id="infoName" readonly>
+      <br class="brM" style="display: none;">
+      <span >학번</span>
+      <input id="infoGcn" readonly>
+      <button onclick="logout()">로그아웃</button>
+      <br class="brM" style="display: none;">
+      <br class="brM" style="display: none;">
+      <br class="brM" style="display: none;">
+      <br class="brM" style="display: none;">
+      <div class="mt-3 rounded p-2" id="myList">
+        <span>나의 나눔 목록</span><br>
+      </div>
+    </div>
+    <!-- TODO: -->
+    <div id="loginDiv" style="display: none;">
+      <span>먼지닷컴으로 로그인</span><br><br>
+      <a href="https://munzii.com/login?forward=jshs-market-login"><img id="loginImg" src="../src/login_hzk.png" height="45" class="darkText"></a>
+    </div>
+    <!-- <div id="spaceDiv" style="min-height:500px;"></div> -->
+  </div>
+
+
+  <footer class="footer pt-10 pb-5 mt-5 footer-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3">
+          <div class="footer-brand">배푸는 민족 - 전곽일보</div>
+          <div class="mb-3">by munzii.</div>
+          <div class="icon-list-social mb-5">
+            <a class="icon-list-social-link" href="https://www.facebook.com/jshsnews">
+              <svg width="40" class="svg-inline--fa fa-facebook fa-w-16" aria-hidden="true" focusable="false"
+                data-prefix="fab" data-icon="facebook" role="img" xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 512 512" data-fa-i2svg="">
+                <path fill="currentColor"
+                  d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z">
+                </path>
+              </svg>
+            </a>
+            <a class="icon-list-social-link" href="https://m.me/jshsnews">
+              <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="40px" height="40px" viewBox="0 0 172 172"
+                style=" fill:#000000;">
+                <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
+                  stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
+                  font-family="none" font-weight="none" font-size="none" text-anchor="none"
+                  style="mix-blend-mode: normal">
+                  <path d="M0,172v-172h172v172z" fill="none"></path>
+                  <path
+                    d="M86,172c-47.49649,0 -86,-38.50351 -86,-86v0c0,-47.49649 38.50351,-86 86,-86v0c47.49649,0 86,38.50351 86,86v0c0,47.49649 -38.50351,86 -86,86z"
+                    fill="currentColor"></path>
+                  <g>
+                    <path
+                      d="M86,28.66667c-30.1,0 -54.46667,23.22 -54.46667,51.6c0,14.90667 6.59333,28.09333 17.2,37.55333v25.51333l22.36,-13.47333c4.58667,1.14667 9.74667,2.00667 14.90667,2.00667c30.1,0 54.46667,-23.22 54.46667,-51.6c0,-28.38 -24.36667,-51.6 -54.46667,-51.6z"
+                      fill="#ffffff"></path>
+                    <path
+                      d="M51.6,97.46667l28.66667,-31.53333l14.33333,14.33333l25.8,-14.33333l-28.66667,31.53333l-14.33333,-14.33333z"
+                      fill="currentColor"></path>
+                  </g>
+                  <path d="" fill="none"></path>
+                </g>
+              </svg>
+
+
+            </a>
+          </div>
+        </div>
+        <div class="col-lg-9">
+          <div class="row">
+            <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
+              <div class="text-uppercase-expanded text-xs mb-4">Family Sites</div>
+              <ul class="list-unstyled mb-0">
+                <li class="mb-2"><a href="https://jshs.munzii.com/jcal">J.Cal</a></li>
+                <li class="mb-2"><a href="https://munzii.com/docs">먼지문서</a></li>
+                <li class="mb-2"><a href="https://jshs.munzii.com/timetravel">전곽일보 Timetravel</a>
+                </li>
+              </ul>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
+              <div class="text-uppercase-expanded text-xs mb-4">Views</div>
+              <ul class="list-unstyled mb-0">
+                <li class="mb-2">Today <b><span id="todayView">-</span></b></li>
+                <li class="mb-2">Total <b><span id="totalView">-</span></b></li>
+              </ul>
+            </div>
+            <div class="col-lg-6 col-md-12 mb-5 mb-md-0">
+              <div class="text-uppercase-expanded text-xs mb-4"><b>Developer</b></div>
+              <ul class="list-unstyled mb-0">
+                <li class="mb-2">27<sup>th</sup> HUZI</li>
+              </ul>
+              <br><br>
+              <div class="text-uppercase-expanded text-xs mb-4"><b>Environment Project</b></div>
+              <ul class="list-unstyled mb-0">
+                <li class="mb-2">27<sup>th</sup> 2J.DDUNG</i> (Illustration)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr class="my-5">
+      <div class="row align-items-center">
+        <div class="col-md-6 small">Copyright © munzii. 배푸는 민족 2021</div>
+        <div class="col-md-6 text-md-right small">
+          Keep in touch with <a href="mailto:huzi@kakao.com"><b>huzi@kakao.com</b></a> or <a
+            href="https://m.me/jshsnews"><b>Messenger</b></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase-auth.js"></script>
+  
+  <script type="text/javascript" src="functions.js?ver=2.0.0"></script>
+</body>
+
+</html>

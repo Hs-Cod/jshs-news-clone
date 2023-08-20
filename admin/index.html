@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="description" content="전곽의 모든 것. 전곽일보 하나만으로." />
+    <meta
+      name="keywords"
+      content="jshs,jeonnam,전남과학고,전곽,전곽일보,급식,전곽 급식,huzi,huzikim,munzii"
+    />
+    <meta property="og:image" content="src/icon_preview.webp" />
+    <meta property="og:title" content="전곽일보" />
+    <meta
+      property="og:description"
+      content="전곽의 모든 것. 전곽일보 하나만으로."
+    />
+    <link rel="canonical" href="https://jshs.munzii.com/" />
+    <link rel="shortcut icon" href="../src/icon_small.webp" />
+
+    <!-- theme color -->
+    <meta name="theme-color" content="#f75127" />
+    <meta name="msapplication-navbutton-color" content="#f75127" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="#f75127" />
+    <!-- script -->
+    <script
+      src="https://code.jquery.com/jquery-2.2.4.min.js"
+      integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+      var isIE = /*@cc_on!@*/ false || !!document.documentMode;
+      if (isIE) {
+        alert(
+          "인터넷 익스플로러는 지원하지 않습니다. 크로미움 브라우저로 접속해 주세요.\nex) Google Chrome, Naver Whale, Microsoft Edge"
+        );
+        document.write(
+          '<h2><b>크롬</b>으로 접속해주세요.<br>Please. Enter with <b>Chrome</b>.<h2><style type="text/undefined">'
+        );
+        history.go(-1);
+      }
+    </script>
+
+    <title>전곽일보 Admin Console</title>
+
+    <script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-firestore.js"></script>
+    <!-- <script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-storage.js"></script> -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-auth.js"></script>
+
+    <!-- css -->
+    <link rel="stylesheet" href="https://jshs.munzii.com/src/bootstrap.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.rawgit.com/innks/NanumSquareRound/master/nanumsquareround.min.css"
+    />
+
+    <link rel="stylesheet" type="text/css" href="style.css?v=1.0.1c" />
+  </head>
+
+  <body id="jshsnewsAdminAll" class="nanumFont">
+    <img src="icon.png" id="iconBanner" />
+    <br /><br />
+    <div id="InfoContainer" class="container">
+      <div id="infoDesc">
+        로그인 후 <b>관리자 계정</b>으로만 이용 가능합니다.
+      </div>
+    </div>
+
+    <div class="container">
+      <!-- 공지 -->
+      <div id="NoticeContainer" class="card mt-4 widgets">
+        <div class="card-body">
+          <h5 class="card-title">공지사항</h5>
+          <h6 class="card-subtitle mb-2 text-muted">
+            전곽일보의 공지사항을 등록하세요.
+          </h6>
+          <!--1-->
+          <div class="input-group mt-3 mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text">공지 1</span>
+            </div>
+            <input
+              id="noticeDesc1"
+              type="text"
+              class="form-control"
+              placeholder="공지사항을 입력하세요."
+            />
+          </div>
+
+          <div class="input-group mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text">링크 1</span>
+            </div>
+            <input
+              id="noticeLink1"
+              type="text"
+              class="form-control"
+              placeholder="링크를 입력하세요."
+            />
+          </div>
+
+          <!--2-->
+          <div class="input-group mt-3 mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text">공지 2</span>
+            </div>
+            <input
+              id="noticeDesc2"
+              type="text"
+              class="form-control"
+              placeholder="공지사항을 입력하세요."
+            />
+          </div>
+
+          <div class="input-group mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text">링크 2</span>
+            </div>
+            <input
+              id="noticeLink2"
+              type="text"
+              class="form-control"
+              placeholder="링크를 입력하세요."
+            />
+          </div>
+
+          <!--3-->
+          <div class="input-group mt-3 mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text">공지 3</span>
+            </div>
+            <input
+              id="noticeDesc3"
+              type="text"
+              class="form-control"
+              placeholder="공지사항을 입력하세요."
+            />
+          </div>
+
+          <div class="input-group mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text">링크 3</span>
+            </div>
+            <input
+              id="noticeLink3"
+              type="text"
+              class="form-control"
+              placeholder="링크를 입력하세요."
+            />
+          </div>
+
+          <!--4-->
+          <div class="input-group mt-3 mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text">공지 4</span>
+            </div>
+            <input
+              id="noticeDesc4"
+              type="text"
+              class="form-control"
+              placeholder="공지사항을 입력하세요."
+            />
+          </div>
+
+          <div class="input-group mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text">링크 4</span>
+            </div>
+            <input
+              id="noticeLink4"
+              type="text"
+              class="form-control"
+              placeholder="링크를 입력하세요."
+            />
+          </div>
+
+          <!--5-->
+          <div class="input-group mt-3 mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text">공지 5</span>
+            </div>
+            <input
+              id="noticeDesc5"
+              type="text"
+              class="form-control"
+              placeholder="공지사항을 입력하세요."
+            />
+          </div>
+
+          <div class="input-group mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text">링크 5</span>
+            </div>
+            <input
+              id="noticeLink5"
+              type="text"
+              class="form-control"
+              placeholder="링크를 입력하세요."
+            />
+          </div>
+
+          <div class="input-group mt-1">
+            <a
+              href="javascript:saveNotice()"
+              class="btn btn-secondary mt-3 float-right mb-3"
+              >저장</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- 긴급공지 -->
+      <div id="EmergencyAd Container" class="card mt-4 widgets">
+        <div class="card-body">
+          <h5 class="card-title">긴급 공지사항</h5>
+          <h6 class="card-subtitle mb-2 text-muted">
+            전곽일보의 긴급 공지사항을 등록하세요.
+          </h6>
+          <!--1-->
+          <div class="input-group mt-3 mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text">공지</span>
+            </div>
+            <input
+              id="emergencyDesc"
+              type="text"
+              class="form-control"
+              placeholder="공지사항을 입력하세요."
+            />
+          </div>
+
+          <div class="input-group mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text">링크</span>
+            </div>
+            <input
+              id="emergencyLink"
+              type="text"
+              class="form-control"
+              placeholder="링크를 입력하세요."
+            />
+          </div>
+          <div class="input-group mt-1">
+            <a
+              href="javascript:saveEmergency()"
+              class="btn btn-secondary mt-3 float-right mb-3"
+              >저장</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- 삼행시 -->
+      <div id="PoemContainer" class="card mt-4 widgets">
+        <div class="card-body">
+          <h5 class="card-title">삼행시</h5>
+          <h6 class="card-subtitle mb-2 text-muted">
+            전곽일보의 삼행시 단어를 등록하세요.
+          </h6>
+          <!--1-->
+          <div class="input-group mt-3 mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text">첫 번째 글자</span>
+            </div>
+            <input
+              id="poemDesc1"
+              type="text"
+              class="form-control"
+              placeholder="첫 번째 글자를 입력하세요."
+            />
+          </div>
+          <div class="input-group mt-3 mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text">둘 번째 글자</span>
+            </div>
+            <input
+              id="poemDesc2"
+              type="text"
+              class="form-control"
+              placeholder="두 번째 글자를 입력하세요."
+            />
+          </div>
+          <div class="input-group mt-3 mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text">세 번째 글자</span>
+            </div>
+            <input
+              id="poemDesc3"
+              type="text"
+              class="form-control"
+              placeholder="세 번째 글자를 입력하세요."
+            />
+          </div>
+
+          <div class="input-group mt-1">
+            <a
+              href="javascript:savePoem()"
+              class="btn btn-secondary mt-3 float-right mb-3"
+              >저장</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- 광고 -->
+      <div id="AdContainer" class="card mt-4 widgets">
+        <div class="card-body">
+          <h5 class="card-title">광고</h5>
+          <h6 class="card-subtitle mb-2 text-muted">
+            삼행시 하단에 노출되는 광고를 등록하세요.
+          </h6>
+
+          <div class="input-group mt-3 mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text">이미지 소스</span>
+            </div>
+            <input
+              id="adImgDesc"
+              type="text"
+              class="form-control"
+              placeholder="이미지 링크를 입력하세요."
+            />
+          </div>
+          <div class="input-group mt-1 mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text">링크</span>
+            </div>
+            <input
+              id="adLinkDesc"
+              type="text"
+              class="form-control"
+              placeholder="연결될 링크를 입력하세요."
+            />
+          </div>
+          <div class="input-group mt-1 mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text">배경 색상</span>
+            </div>
+            <input
+              id="adBgcDesc"
+              type="text"
+              class="form-control"
+              placeholder="배경 색상을 입력하세요."
+            />
+          </div>
+
+          <div class="input-group mt-1">
+            <a
+              href="javascript:saveAd()"
+              class="btn btn-secondary mt-3 float-right mb-3"
+              >저장</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- 동영상 -->
+      <div id="VideoContainer" class="card mt-4 widgets">
+        <div class="card-body">
+          <h5 class="card-title">추천 동영상</h5>
+          <h6 class="card-subtitle mb-2 text-muted">
+            추천할 동영상을 등록하세요.
+          </h6>
+
+          <div class="input-group mt-3 mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text">제목</span>
+            </div>
+            <input
+              id="videoTitle"
+              type=" text"
+              class="form-control"
+              placeholder="제목을 입력하세요."
+            />
+          </div>
+
+          <div class="input-group mt-1 mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text">유튜브 VIDEO ID</span>
+            </div>
+            <input
+              id="videoLink"
+              type="text"
+              class="form-control"
+              placeholder="VIDEO ID를 입력하세요."
+            />
+          </div>
+
+          <div class="input-group mt-1">
+            <a
+              href="javascript:saveVideo()"
+              class="btn btn-secondary mt-3 float-right mb-3"
+              >저장</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- 이벤트 -->
+      <div id="EventContainer" class="card mt-4 widgets">
+        <div class="card-body">
+          <h5 class="card-title">이벤트 섹션</h5>
+          <h6 class="card-subtitle mb-2 text-muted">
+            전곽일보의 이벤트 섹션 관리 : 대회, 공지, 이벤트
+          </h6>
+          <br />
+          <h6 class="card-subtitle mb-1 mt-1">이벤트 1</h6>
+          <div class="input-group mt-3 mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text">제목</span>
+            </div>
+            <input
+              id="eventTitle1"
+              type="text"
+              class="form-control"
+              placeholder="ex) 제 1회 발명품공모전"
+            />
+          </div>
+          <div class="input-group mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text">설명</span>
+            </div>
+            <input
+              id="eventDesc1"
+              type="text"
+              class="form-control"
+              placeholder="ex) 여러분의 아이디어가 필요합니다."
+            />
+          </div>
+          <div class="input-group mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text">버튼 제목</span>
+            </div>
+            <input
+              id="eventBtn1"
+              type="text"
+              class="form-control"
+              placeholder="ex) 자세히 알아보기"
+            />
+          </div>
+          <div class="input-group mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text">버튼 링크</span>
+            </div>
+            <input
+              id="eventLink1"
+              type="text"
+              class="form-control"
+              placeholder="ex) http://jeonnam..."
+            />
+          </div>
+          <div class="input-group mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text">미디어 모드</span>
+            </div>
+            <input
+              id="eventMode1"
+              type="text"
+              class="form-control"
+              placeholder="ex) YouTube = 0, ImgUrl = 1"
+            />
+          </div>
+          <div class="input-group mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text">미디어 링크</span>
+            </div>
+            <input
+              id="eventMedia1"
+              type="text"
+              class="form-control"
+              placeholder="ex) YouTube 영상 코드, 이미지 URL"
+            />
+          </div>
+          <hr />
+          <h6 class="card-subtitle mb-1 mt-1">이벤트 2</h6>
+          <div class="input-group mt-3 mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text">제목</span>
+            </div>
+            <input
+              id="eventTitle2"
+              type="text"
+              class="form-control"
+              placeholder="ex) 제 1회 발명품공모전"
+            />
+          </div>
+          <div class="input-group mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text">설명</span>
+            </div>
+            <input
+              id="eventDesc2"
+              type="text"
+              class="form-control"
+              placeholder="ex) 여러분의 아이디어가 필요합니다."
+            />
+          </div>
+          <div class="input-group mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text">버튼 제목</span>
+            </div>
+            <input
+              id="eventBtn2"
+              type="text"
+              class="form-control"
+              placeholder="ex) 자세히 알아보기"
+            />
+          </div>
+          <div class="input-group mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text">버튼 링크</span>
+            </div>
+            <input
+              id="eventLink2"
+              type="text"
+              class="form-control"
+              placeholder="ex) http://jeonnam..."
+            />
+          </div>
+          <div class="input-group mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text">미디어 모드</span>
+            </div>
+            <input
+              id="eventMode2"
+              type="text"
+              class="form-control"
+              placeholder="ex) YouTube = 0, ImgUrl = 1"
+            />
+          </div>
+          <div class="input-group mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text">미디어 링크</span>
+            </div>
+            <input
+              id="eventMedia2"
+              type="text"
+              class="form-control"
+              placeholder="ex) YouTube 영상 코드, 이미지 URL"
+            />
+          </div>
+          <hr />
+          <h6 class="card-subtitle mb-1 mt-1">이벤트 3</h6>
+          <div class="input-group mt-3 mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text">제목</span>
+            </div>
+            <input
+              id="eventTitle3"
+              type="text"
+              class="form-control"
+              placeholder="ex) 제 1회 발명품공모전"
+            />
+          </div>
+          <div class="input-group mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text">설명</span>
+            </div>
+            <input
+              id="eventDesc3"
+              type="text"
+              class="form-control"
+              placeholder="ex) 여러분의 아이디어가 필요합니다."
+            />
+          </div>
+          <div class="input-group mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text">버튼 제목</span>
+            </div>
+            <input
+              id="eventBtn3"
+              type="text"
+              class="form-control"
+              placeholder="ex) 자세히 알아보기"
+            />
+          </div>
+          <div class="input-group mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text">버튼 링크</span>
+            </div>
+            <input
+              id="eventLink3"
+              type="text"
+              class="form-control"
+              placeholder="ex) http://jeonnam..."
+            />
+          </div>
+          <div class="input-group mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text">미디어 모드</span>
+            </div>
+            <input
+              id="eventMode3"
+              type="text"
+              class="form-control"
+              placeholder="ex) YouTube = 0, ImgUrl = 1"
+            />
+          </div>
+          <div class="input-group mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text">미디어 링크</span>
+            </div>
+            <input
+              id="eventMedia3"
+              type="text"
+              class="form-control"
+              placeholder="ex) YouTube 영상 코드, 이미지 URL"
+            />
+          </div>
+          <hr />
+          <h6 class="card-subtitle mb-1 mt-1">이벤트 4</h6>
+          <div class="input-group mt-3 mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text">제목</span>
+            </div>
+            <input
+              id="eventTitle4"
+              type="text"
+              class="form-control"
+              placeholder="ex) 제 1회 발명품공모전"
+            />
+          </div>
+          <div class="input-group mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text">설명</span>
+            </div>
+            <input
+              id="eventDesc4"
+              type="text"
+              class="form-control"
+              placeholder="ex) 여러분의 아이디어가 필요합니다."
+            />
+          </div>
+          <div class="input-group mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text">버튼 제목</span>
+            </div>
+            <input
+              id="eventBtn4"
+              type="text"
+              class="form-control"
+              placeholder="ex) 자세히 알아보기"
+            />
+          </div>
+          <div class="input-group mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text">버튼 링크</span>
+            </div>
+            <input
+              id="eventLink4"
+              type="text"
+              class="form-control"
+              placeholder="ex) http://jeonnam..."
+            />
+          </div>
+          <div class="input-group mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text">미디어 모드</span>
+            </div>
+            <input
+              id="eventMode4"
+              type="text"
+              class="form-control"
+              placeholder="ex) YouTube = 0, ImgUrl = 1"
+            />
+          </div>
+          <div class="input-group mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text">미디어 링크</span>
+            </div>
+            <input
+              id="eventMedia4"
+              type="text"
+              class="form-control"
+              placeholder="ex) YouTube 영상 코드, 이미지 URL"
+            />
+          </div>
+          <hr />
+          <h6 class="card-subtitle mb-1 mt-1">이벤트 5</h6>
+          <div class="input-group mt-3 mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text">제목</span>
+            </div>
+            <input
+              id="eventTitle5"
+              type="text"
+              class="form-control"
+              placeholder="ex) 제 1회 발명품공모전"
+            />
+          </div>
+          <div class="input-group mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text">설명</span>
+            </div>
+            <input
+              id="eventDesc5"
+              type="text"
+              class="form-control"
+              placeholder="ex) 여러분의 아이디어가 필요합니다."
+            />
+          </div>
+          <div class="input-group mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text">버튼 제목</span>
+            </div>
+            <input
+              id="eventBtn5"
+              type="text"
+              class="form-control"
+              placeholder="ex) 자세히 알아보기"
+            />
+          </div>
+          <div class="input-group mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text">버튼 링크</span>
+            </div>
+            <input
+              id="eventLink5"
+              type="text"
+              class="form-control"
+              placeholder="ex) http://jeonnam..."
+            />
+          </div>
+          <div class="input-group mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text">미디어 모드</span>
+            </div>
+            <input
+              id="eventMode5"
+              type="text"
+              class="form-control"
+              placeholder="ex) YouTube = 0, ImgUrl = 1"
+            />
+          </div>
+          <div class="input-group mb-1">
+            <div class="input-group-prepend">
+              <span class="input-group-text">미디어 링크</span>
+            </div>
+            <input
+              id="eventMedia5"
+              type="text"
+              class="form-control"
+              placeholder="ex) YouTube 영상 코드, 이미지 URL"
+            />
+          </div>
+
+          <div class="input-group mt-1">
+            <a
+              href="javascript:saveEvent()"
+              class="btn btn-secondary mt-3 float-right mb-3"
+              >저장</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="functions.js?ver=1.0.1a"></script>
+  </body>
+</html>

@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/earlyaccess/jejumyeongjo.css');
+
+*{
+    font-family: 'Jeju Myeongjo', serif;
+}
+
+@font-face {
+    font-family: 'boldFont';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/TTTogetherA.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+#headCover{
+    aspect-ratio: 1448 / 890;
+    width:100%;
+    object-fit: cover;
+    filter: brightness(0.7);
+    border-radius: 5px;
+}
+
+/* recentList */
+.recentListItem{
+    color: white !important;
+}
+.recentListItem .rotate-img{
+    min-width: 80px;
+}
+.recentListItem img{
+    aspect-ratio: 78/59;
+    width: 80px;
+    min-width: 80px;
+    object-fit: cover;
+
+}
+
+/* newsListSection */
+#newsListSection .img-fluid{
+    width: 100%;
+    aspect-ratio: 57 / 36;
+    object-fit: cover;
+
+}
+#newsListSection div, #newsListSection p{
+    color: black !important;
+}
+/* selectionMenu */
+#selectionMenu .badge{
+    margin: 5px 5px 0px 0px;
+}
+#selectionMenu .badge a{
+    font-size: 1rem;
+    margin:10px;
+    color:white;
+}
+
+#allContainer{
+    display: none;
+}
+
+/* FOOTER & HEADER */
+
+footer .footer-top, footer .footer-bottom {
+    background-color: black;
+}
+
+footer svg {
+    fill: #ffffff !important;
+    margin-right: 10px;
+}
+
+footer a {
+    color: grey;
+}
+
+header {
+    padding-top: 30px;
+    background: none;
+}
+
+header .navbar-bottom {
+    padding-bottom: 0px;
+}
+
+header .navbar .navbar-brand img {
+    width: 300px;
+}
+
+a, a:hover {
+    text-decoration: none;
+}
+
+.footer-logo{
+    height: 35px;
+    filter: brightness(100);
+}
+
+#navbar .badge{
+    margin-top: 10px;
+}
+
+.img-fluid{
+    border-radius: 5px;
+}
+
+@media (max-width:767px) {
+    header {
+        padding-top: 10px;
+    }
+    header .navbar .navbar-brand img {
+        width: 200px;
+    }
+}

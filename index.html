@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html>
+<!--
+  전곽일보 from munzii.
+  https://munzii.com
+
+  Join us on Facebook
+  https://fb.com/jshsnews
+-->
+
+<head>
+  <!-- METADATA -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Type" Content="text/html; charset=utf-8">
+  <meta name="description" content="전곽인이라면? 전곽일보.">
+  <meta name="keywords" content="jshs,jeonnam,전남과학고,전곽,전곽일보,급식,전곽 급식,huzi,huzikim,munzii">
+  <meta property="og:image" content="src/icon_preview.webp">
+  <meta property="og:title" content="전곽일보">
+  <meta property="og:description" content="전곽의 모든 것. 전곽일보 하나만으로.">
+  <link rel="canonical" href="https://jshs.munzii.com/">
+  <title>전곽일보 - 전곽의 모든 것</title>
+  <link rel="shortcut icon" href="https://jshs.munzii.com/src/new2/icon-small.png">
+
+  <!-- THEME COLOR -->
+  <meta name="theme-color" content="#f75127">
+  <meta name="msapplication-navbutton-color" content="#f75127">
+  <meta name="apple-mobile-web-app-status-bar-style" content="#f75127">
+
+  <!-- SCRIPT -->
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js"
+    integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <!-- NO IE BROWSER -->
+  <script>
+    if (false || !!document.documentMode) {
+      alert("인터넷 익스플로러는 지원하지 않습니다. Chromium 브라우저로 접속해 주세요.\nex) Google Chrome, Naver Whale, Microsoft Edge, Safari");
+    }
+  </script>
+
+  <!-- FIREBASE -->
+  <script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-firestore.js"></script>
+
+  <!-- BOOTSTRAP -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
+
+  <!-- CSS -->
+  <link rel="stylesheet" type="text/css" href="styles/style-skeleton.css?v=J3.0.4">
+  <link rel="stylesheet" type="text/css" href="styles/style-main.css?v=J3.0.4">
+  <link rel="stylesheet" type="text/css" href="styles/style-news.css?v=J3.0.4">
+  <link rel="stylesheet" type="text/css" href="styles/style-info.css?v=J3.0.4">
+  <link rel="stylesheet" type="text/css" href="styles/style-food.css?v=J3.0.4">
+  <link rel="stylesheet" type="text/css" href="styles/style-utility.css?v=J3.0.4">
+  <link rel="stylesheet" type="text/css" href="styles/style-cal.css?v=J3.0.4">
+  <link rel="stylesheet" type="text/css" href="styles/mobile.css?v=J3.0.4" media="screen and (max-width:1047px)">
+
+  <!-- NOTIFICATION(SNACKBAR) -->
+  <link href="https://jshs.munzii.com/src/snackbar.css" rel="stylesheet" type="text/css" />
+
+  <!-- CALENDAR -->
+  <link rel="stylesheet" type="text/css" href="https://uicdn.toast.com/tui-calendar/latest/tui-calendar.css" />
+  <link rel="stylesheet" type="text/css" href="https://uicdn.toast.com/tui.date-picker/latest/tui-date-picker.css" />
+  <link rel="stylesheet" type="text/css" href="https://uicdn.toast.com/tui.time-picker/latest/tui-time-picker.css" />
+  <script src="https://uicdn.toast.com/tui.code-snippet/v1.5.2/tui-code-snippet.min.js"></script>
+  <script src="https://uicdn.toast.com/tui.time-picker/latest/tui-time-picker.min.js"></script>
+  <script src="https://uicdn.toast.com/tui.date-picker/latest/tui-date-picker.min.js"></script>
+  <script src="https://uicdn.toast.com/tui-calendar/latest/tui-calendar.js"></script>
+
+</head>
+
+<body id="jnewsBody" class="sky">
+
+  <!-- 로딩 화면 -->
+  <div id="loadingContainer">
+    <!-- <img id="loadingIcon" src="../src/new2/loading-small.png"> -->
+  </div>
+
+  <!-- 메인 화면 -->
+  <!-- 패널은 네비게이터와 페이지 컨테이너로 이루어짐 -->
+  <div id="panel">
+    <!-- 네비게이터 -->
+    <div id="navigator">
+      <!-- 로고 -->
+      <a href="javascript:history.go(0)">
+        <img id="icon" src="https://jshs.munzii.com/src/new2/icon-square.png">
+      </a>
+      <!-- 메인 링크 -->
+      <a href="javascript:goto(0)">
+        <div class="menu_item active transFast" id="menu_item_0">
+          <i class="bi bi-house-door"></i>
+          <span>메인</span>
+        </div>
+      </a>
+      <!-- 뉴스 링크 -->
+      <a href="javascript:goto(1)">
+        <div class="menu_item transFast" id="menu_item_1">
+          <i class="bi bi-newspaper"></i>
+          <span>뉴스</span>
+        </div>
+      </a>
+      <!-- 일정 링크 -->
+      <a href="javascript:goto(2)">
+        <div class="menu_item transFast" id="menu_item_2">
+          <i class="bi bi-calendar-event"></i>
+          <span>일정</span>
+        </div>
+      </a>
+      <!-- 메뉴 링크 -->
+      <a href="javascript:goto(3)">
+        <div class="menu_item transFast" id="menu_item_3">
+          <i class="bi bi-egg-fried"></i>
+          <span>메뉴</span>
+        </div>
+      </a>
+      <!-- 기능 링크 -->
+      <a href="javascript:goto(4)">
+        <div class="menu_item transFast" id="menu_item_4">
+          <i class="bi bi-dice-6"></i>
+          <span>기능</span>
+        </div>
+      </a>
+      <!-- 정보 링크 -->
+      <a href="javascript:goto(5)">
+        <div class="menu_item transFast" id="menu_item_5">
+          <i class="bi bi-info-circle"></i>
+          <span>정보</span>
+        </div>
+      </a>
+    </div>
+
+    <!-- 페이지 컨테이너 -->
+    <div id="pages_container">
+      <!-- 날씨 팝업창(메인) -->
+      <div id="page_pop">
+        <div class="popup_container p-2">
+          <div class="popup_header">
+            <div class="popup_title">
+              <span>
+                <a href="javascript:closeWeather()">
+                  <h3>
+                    <b class="text-secondary"><i class="bi bi-cloud-sun"></i> 날씨</b>
+                    <i class="bi bi-x-circle-fill text-secondary float-end"></i>
+                  </h3>
+                </a>
+              </span>
+            </div>
+          </div>
+          <div class="popup_content">
+
+            <div>
+              <img id="weatherIconW" src="http://openweathermap.org/img/wn/04d@2x.png">
+              <div style="display: inline-block; transform:translateY(20px)" class="ml-2">
+                <span id="weatherDescW"></span><br>
+                <span id="weatherTemperatureW"></span><br>
+              </div>
+            </div>
+            <div id="weatherDescContainerW">
+              <div class="hidden">
+                <span class="weatherBadge text-danger">최고</span> <span id="weatherTemperatureMax"></span>
+                <span class="weatherBadge text-info ml-3">최저</span> <span id="weatherTemperatureMin"></span><br>
+              </div>
+              <div>
+                <span class="weatherBadge text-info">습도</span> <span id="weatherHumid"></span>
+                <span class="weatherBadge ms-2">풍속</span> <span id="weatherWind"></span><br>
+              </div>
+              <div>
+              </div>
+              <div>
+                <span class="weatherBadge">기압</span> <span id="weatherPress"></span><br>
+              </div>
+              <div>
+                <span class="weatherBadge">미세먼지 </span> <span id="weatherDust"></span>
+                <span class="weatherBadge text-danger ms-2">초미세먼지 </span> <span id="weatherDustCho"></span><br>
+              </div>
+              <div>
+                <span class="weatherBadge">대기오염</span> <span id="weatherAir"></span><br>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 메인 페이지 -->
+      <div id="page_main" class="page active">
+        <!-- <div id="accounts_container"></div> -->
+        <div id="main_contents_container">
+          <!-- 공지사항 -->
+          <span id="title_notice" class="menuTitle"><i class="bi bi-bell-fill"></i> 공지사항
+            <a id="emergency_link" target="_blank" href="">
+              <div id="emergency_notice"><i class="bi bi-exclamation-triangle-fill"></i>
+                <span id="emergency_content">Emergency Content</span>
+              </div>
+            </a>
+          </span>
+          <div id="notice_container">
+            <div id="notice_box" class="transShort">
+            </div>
+            <!-- 로딩 중 표시 -->
+            <div id="notice_loading">
+              <div class="notice_loading_item loadingBackground"></div>
+              <div class="notice_loading_item loadingBackground"></div>
+              <div class="notice_loading_item loadingBackground"></div>
+            </div>
+            <div id="news_loading" class="notice_loading_item loadingBackground"></div>
+          </div>
+
+
+          <!-- 식사 -->
+          <span id="title_food" class="menuTitle"><i class="bi bi-egg-fried"></i> <span id="meal_title">점심
+              식사</span></span>
+          
+          <!-- 식사 미리보기 -->
+          <div id="food_container">
+            <img id="hover_image" class="transFast" src="">
+          </div>
+          <br>
+
+          <!-- 위젯 -->
+          <div id="widgets_container">
+            <!-- 날씨 위젯 -->
+            <a href="javascript:weatherOpen()">
+              <div id="weatherWidget" class="widget transShort">
+                <img id="weatherIcon" src="http://openweathermap.org/img/wn/01d@2x.png">
+                <div id="weatherDescContainer">
+                  <span id="weatherTemperature">20.0°C</span><br>
+                  <span id="weatherDesc">맑음</span>
+                </div>
+              </div>
+            </a>
+
+            <!-- 오늘의 영상 위젯 -->
+            <div id="videoWidget" class="widget transShort loadingBackground">
+              <a id="videoWidgetLink" target="_blank" href="#">
+                <div id="videoWidgetImg" class="transShort">
+                  <!-- <i class="bi bi-play-circle-fill" id="videoWidgetPlay"></i> -->
+                  <div id="videoWidgetDesc"></div>
+                  <img src="src/new3/play-circle-fill.png" id="videoWidgetPlay">
+                </div>
+              </a>
+            </div>
+
+            <!-- 툴(바로가기) 위젯 -->
+            <div id="toolsWidget" class="widget">
+              <table>
+                <tr>
+                  <td>
+                    <a href="javascript:cannonWindowToggle()">
+                      <img src="src/new3/widget_daepo.png">
+                    </a>
+                  </td>
+                  <td>
+                    <a target="_blank" href="https://jshs.munzii.com/news/">
+                      <img src="src/new3/widget_news.png">
+                    </a>
+                  </td>
+
+                </tr>
+                <tr>
+                  <td>
+                    <a target="_blank" href="https://jshsus.kr/">
+                      <img src="src/new3/widget_jshsus.png">
+                    </a>
+                  </td>
+                  <td>
+                    <a target="_blank" href="https://m.me/jshsnews">
+                      <img src="src/new3/widget_sns.png">
+                    </a>
+                  </td>
+                </tr>
+              </table>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 뉴스 페이지 -->
+      <div id="page_news" class="page p-4">
+        <div class="section normal fp-section active fp-completely">
+          <div id="newsBannerContainer">
+            <a href="https://jshs.munzii.com/news">
+              <img id="newsBanner" src="https://jshs.munzii.com/src/new2/news-banner.png">
+            </a>
+          </div>
+          <div id="newsContainer" class="row">
+            <div id="newsSection1" class="card-container col-sm-12 col-md-12 col-lg-5">
+              <a>
+                <div id="newsHeaderImg" class="transShort rounded-3">
+                  <div id="newsHeaderDesc" class="transShort"></div>
+                </div>
+                <div id="newsHeaderContent" class="loadingText"></div>
+                <div id="newsHeaderAuthor" class="author loadingText"></div>
+              </a>
+            </div>
+            <div id="newsSection2" class="card-container col-sm-12 col-md-6 col-lg-3">
+              <a>
+                <div id="newsSecondary1" class="newsCard transShort">
+                  <div class="imgContainer loadingBackground">
+                    <img class="transShort">
+                  </div>
+                  <span class="title loadingText"></span>
+                  <span class="author loadingText"></span>
+                </div>
+              </a>
+              <a href="">
+                <div id="newsSecondary2" class="newsCard transShort">
+                  <div class="imgContainer loadingBackground">
+                    <img class="transShort">
+                  </div>
+                  <span class="title loadingText"></span>
+                  <span class="author loadingText"></span>
+                </div>
+              </a>
+            </div>
+            <div id="newsSection3" class="card-container col-sm-12 col-md-6 col-lg-4">
+              <span id="newsSection3Desc">Recent</span><br>
+              <div class="loadingRecentNews loadingText loadingBackground"></div>
+              <div class="loadingRecentNews loadingText loadingBackground"></div>
+              <div class="loadingRecentNews loadingText loadingBackground"></div>
+              <div class="loadingRecentNews loadingText loadingBackground"></div>
+              <div class="loadingRecentNews loadingText loadingBackground"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 달력 페이지 -->
+      <div id="page_calendar" class="page">
+        <!-- <iframe src="" id="calendarIframe" style="width:100%; height: 100%;"></iframe> -->
+        <div id="calendar_tools" class="mb-2">
+          <a id="prevMonth" href="javascript:updateCal(-1)">
+            <i class="bi bi-chevron-left text-secondary"></i>
+          </a>
+          <span id="monthNow" class="me-1 ms-1">February</span>
+          <a id="nextMonth" href="javascript:updateCal(1)">
+            <i class="bi bi-chevron-right text-secondary"></i>
+          </a>
+
+          <div class="btn-group float-end mb-2">
+            <button id="hakbanChooseBtn" class="btn btn-outline-secondary btn-sm dropdown-toggle" type="button"
+              data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              1-1
+            </button>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="javascript:setHakban(0,1)">1-1</a>
+              <a class="dropdown-item" href="javascript:setHakban(1,1)">1-2</a>
+              <a class="dropdown-item" href="javascript:setHakban(2,1)">1-3</a>
+              <a class="dropdown-item" href="javascript:setHakban(3,1)">1-4</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="javascript:setHakban(4,1)">2-1</a>
+              <a class="dropdown-item" href="javascript:setHakban(5,1)">2-2</a>
+              <a class="dropdown-item" href="javascript:setHakban(6,1)">2-3</a>
+              <a class="dropdown-item" href="javascript:setHakban(7,1)">2-4</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="javascript:setHakban(8,1)">3-1</a>
+              <a class="dropdown-item" href="javascript:setHakban(9,1)">3-2</a>
+              <a class="dropdown-item" href="javascript:setHakban(10,1)">3-3</a>
+              <a class="dropdown-item" href="javascript:setHakban(11,1)">3-4</a>
+            </div>
+          </div>
+        </div>
+        <div id="calendar"></div>
+
+        <div id="calendar_pick">
+          <br>
+          <span class="ms-3">전곽캘린더를 사용하실 학년/반을 선택해주세요.</span>
+          <div>
+            <a href="javascript:setHakban(0,1)">
+              <div class="calPickBtn">1-1</div>
+            </a>
+            <a href="javascript:setHakban(1,1)">
+              <div class="calPickBtn">1-2</div>
+            </a>
+            <a href="javascript:setHakban(2,1)">
+              <div class="calPickBtn">1-3</div>
+            </a>
+            <a href="javascript:setHakban(3,1)">
+              <div class="calPickBtn">1-4</div>
+            </a>
+          </div>
+          <div>
+            <a href="javascript:setHakban(4,1)">
+              <div class="calPickBtn">2-1</div>
+            </a>
+            <a href="javascript:setHakban(5,1)">
+              <div class="calPickBtn">2-2</div>
+            </a>
+            <a href="javascript:setHakban(6,1)">
+              <div class="calPickBtn">2-3</div>
+            </a>
+            <a href="javascript:setHakban(7,1)">
+              <div class="calPickBtn">2-4</div>
+            </a>
+          </div>
+          <div>
+            <a href="javascript:setHakban(8,1)">
+              <div class="calPickBtn">3-1</div>
+            </a>
+            <a href="javascript:setHakban(9,1)">
+              <div class="calPickBtn">3-2</div>
+            </a>
+            <a href="javascript:setHakban(10,1)">
+              <div class="calPickBtn">3-3</div>
+            </a>
+            <a href="javascript:setHakban(11,1)">
+              <div class="calPickBtn">3-4</div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 식단 페이지 -->
+      <div id="page_food" class="page p-5">
+        <div id="menuControlContainer">
+          <span style="display: inline-block;" class="text-secondary mb-2">
+
+            <span id="menuDate" class="menuTitle" style="display:inline;">오늘 급식</span>
+            <a class="menuControl" href="javascript:mealupdate(-1)">
+              <i class="bi bi-arrow-left-circle"></i>
+
+            </a>
+            <a class="menuControl" href="javascript:mealupdate(1)">
+              <i class="bi bi-arrow-right-circle"></i>
+
+            </a>
+          </span>
+        </div>
+
+        <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+          <div class="col">
+            <div class="card mb-4 rounded-3 shadow-sm">
+              <div class="card-header py-3" id="header1">
+                <span class="my-0 fw-normal"><i class="bi bi-cloud-sun"></i> Breakfast</span>
+              </div>
+              <div class="card-body">
+                <ul class="list-unstyled mt-3 mb-4" id="menuMorning">
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card mb-4 rounded-3 shadow-sm">
+              <div class="card-header py-3" id="header2">
+                <span class="my-0 fw-normal"><i class="bi bi-brightness-low"></i> Lunch</span>
+              </div>
+              <div class="card-body">
+                <ul class="list-unstyled mt-3 mb-4" id="menuLunch">
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card mb-4 rounded-3 shadow-sm">
+              <div class="card-header py-3" id="header3">
+                <span class="my-0 fw-normal"><i class="bi bi-moon-stars"></i> Dinner</span>
+              </div>
+              <div class="card-body">
+                <ul class="list-unstyled mt-3 mb-4" id="menuDinner">
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 유틸리티 페이지 -->
+      <div id="page_utility" class="page">
+
+        <span id="utilityTitle" class="menuTitle">Utility</span><br>
+        <div class="container">
+          <div class="row">
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+              <a href="javascript:cannonWindowToggle()">
+                <div class="eventCard transShort" style="background : url('src/new3/event/daepo.png');">
+                </div>
+              </a>
+            </div>
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6">
+              <a href="https://munzii.com/event/" target="_blank">
+                <div class="eventCard transShort"
+                  style="background : url('src/new3/event/gift.png'); background-color: #ffcc4d;">
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <span id="toolsTitle" class="menuTitle" style="transform:translateY(20px) translateX(-10px)">Tools</span><br>
+          <div id="tools" class="transShort">
+            <button class="scDesc">인기</button>
+            <button data-bgi="src/jshsus.webp" onclick="openUrl('https://jshsus.kr')"></button>
+            <button data-bgi="src/jshsdocs.webp" onclick="openUrl('https://munzii.com/docs')"></button>
+            <button class="round" data-bgi="src/facebok.webp" onclick="openUrl('https://facebook.com/')"></button>
+            <button class="round" data-bgi="src/namu.webp" onclick="openUrl('https://namu.wiki/')"></button>
+            <button class="round" data-bgi="src/schoollogo.webp"
+            onclick="openUrl('http://jeonnam-sh.hs.jne.kr/user/indexMain.action?siteId=chonnam-sh_hs')"></button>
+            <button class="round" data-bgi="src/jeonla.webp"
+            onclick="openUrl('http://www.jne.go.kr/index.jne')"></button><br>
+            <div class="break"></div>
+            <button class="scDesc">포탈</button>
+            <button class="round" data-bgi="src/google.webp" onclick="openUrl('https://google.co.kr/')"></button>
+            <button data-bgi="src/youtube.webp" onclick="openUrl('https://youtube.com/')"></button>
+            <button data-bgi="src/googledrive.webp" onclick="openUrl('https://drive.google.com/')"></button>
+            <button data-bgi="src/naver.webp" onclick="openUrl('https://naver.com/')"></button>
+            <button data-bgi="src/navermail.webp" onclick="openUrl('https://mail.naver.com/')"></button>
+            <button data-bgi="src/daum.webp" onclick="openUrl('https://daum.net/')"></button>
+
+            <div class="break"></div>
+            <button class="scDesc">자료</button>
+            <button data-bgi="src/phet.webp" onclick="openUrl('https://phet.colorado.edu/ko/')"></button>
+            <button data-bgi="src/dbpia.webp" onclick="openUrl('http://www.dbpia.co.kr/')"></button>
+            <button data-bgi="src/riss.webp" onclick="openUrl('http://www.riss.kr/')"></button>
+            <button data-bgi="src/googleword.webp" onclick="openUrl('https://docs.google.com/')"></button>
+            <button data-bgi="src/schoolalert.webp"
+              onclick="openUrl('http://www.schoolinfo.go.kr/index.jsp?GS_CD=S140000302')"></button><br>
+            <div class="break"></div>
+            <button class="scDesc">쇼핑</button>
+            <button data-bgi="src/11st.webp" onclick="openUrl('http://www.11st.co.kr')"></button>
+            <button data-bgi="src/auction.webp" onclick="openUrl('http://www.auction.co.kr/')"></button>
+            <button data-bgi="src/gmarket.webp" onclick="openUrl('http://gmarket.co.kr/')"></button><br>
+            <div class="break"></div>
+            <button class="scDesc">개발</button>
+            <button data-bgi="src/msdn.webp" onclick="openUrl('http://msdn.microsoft.com')"></button>
+            <button data-bgi="src/w3.webp" onclick="openUrl('https://www.w3schools.com')"></button>
+            <button data-bgi="src/repl.webp" onclick="openUrl('https://repl.it')"></button><br>
+            <div class="break"></div>
+            <button class="scDesc">mzii<sup>®</sup></button>
+            <button data-bgi="src/hanguel.webp" onclick="openUrl('https://m.me/hanbots/')"></button>
+            <button data-bgi="src/munzii.webp" onclick="openUrl('https://munzii.com')"></button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- 정보 페이지 -->
+      <div id="page_info" class="page p-5">
+
+        <div>
+          <div class="row">
+            <div class="col-lg-3">
+              <div class="footer-brand bold">전곽일보</div>
+              <div class="mb-3">by munzii.</div>
+              <img src="https://munzii.com/src/logo2.png" height="30"><br>
+              <div class="icon-list-social mt-3">
+                <h2><a class="icon-list-social-link" href="https://www.facebook.com/jshsnews">
+                    <i class="bi bi-facebook"></i>
+                  </a>
+                  <a class="icon-list-social-link" href="https://m.me/jshsnews">
+                    <i class="bi bi-messenger"></i>
+                  </a>
+                </h2>
+              </div>
+            </div>
+            <div class="col-lg-9">
+              <div class="row">
+                <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
+                  <div class="text-uppercase-expanded text-xs mb-4 bold">Family Sites</div>
+                  <ul class="list-unstyled mb-0">
+                    <li class="mb-2"><a href="https://jshs.munzii.com/">전곽일보</a></li>
+                    <li class="mb-2"><a href="https://jshs.munzii.com/news">전곽 Today</a></li>
+                    <li class="mb-2"><a href="https://jshs.munzii.com/market/">전곽 MARKET</a></li>
+                    <!-- <li class="mb-2"><a href="https://jshs.munzii.com/jcal/">전곽캘린더</a></li> -->
+                    <li class="mb-2"><a href="https://jshs.munzii.com/timetravel/">전곽일보 Timetravel</a>
+                    <li class="mb-2"><a href="https://jshs.munzii.com/unplival/">UNPLIVAL 초콜릿 공장</a></li>
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
+                  <div class="text-uppercase-expanded text-xs mb-4 bold">Views</div>
+                  <ul class="list-unstyled mb-0">
+                    <li class="mb-2">Today <b><span id="todayView">0</span></b></li>
+                    <li class="mb-2">Total <b><span id="totalView">0</span></b></li>
+                  </ul>
+                </div>
+                <div class="col-lg-6 col-md-12 mb-5 mb-md-0">
+                  <div class="text-uppercase-expanded text-xs mb-4 bold"><b>Developer</b></div>
+                  <ul class="list-unstyled mb-0">
+                    <li class="mb-2">JSHS 27<sup>th</sup> HUZI (김지후)</li>
+                  </ul>
+                  <br><br>
+                  <div class="text-uppercase-expanded text-xs mb-4 bold"><b>Contribution</b></div>
+                  <ul class="list-unstyled mb-0">
+                    <li class="mb-2">JSHS 27<sup>th</sup> Guten910<i> (Timetable Data)</i></li>
+                    <li class="mb-2"><a href="https://h-bread.tistory.com/">JSHS 27<sup>th</sup> H_bread<i> (Menu
+                          API)</i></a></li>
+                    <li class="mb-2">JSHS 29<sup>th</sup> 유성재<i> (2대 관리자 2021~)</i></li>
+                    <li class="mb-2">Background vector created by
+                      freepik - <a href="https://www.freepik.com/vectors/background">www.freepik.com</a></li>
+                    <li>Icons made by from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <hr class="my-5">
+          <div class="row align-items-center">
+            <div class="col-md-6 small">Copyright © munzii. All Rights
+              Reserved.</div>
+            <div class="col-md-6 text-md-right small">
+              Keep in touch with <a href="mailto:huzi@kakao.com"><b>huzi@kakao.com</b></a> or <a
+                href="https://m.me/jshsnews"><b>Messenger</b></a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+
+    </div>
+
+
+
+    <div id="cannonContainer">
+      <a id="cannonButton" href="javascript:cannonShoot()"><img class="floating"
+          data-src="https://jshs.munzii.com/src/new/cannon-boat.webp" id="cannonImg"
+          src="https://jshs.munzii.com/src/new/cannon-boat.webp"></a>
+      <button id="cannonBall" class="comicFont">45</button>
+      <button id="cannonExit" onclick="cannonWindowToggle()"></button>
+      <div id="cannonControl">
+        <div class="input-group mb-3">
+          <input id="cannonStart" type="number" min="1" max="99" class="form-control" value="1" maxlength="2"
+            oninput="maxLengthCheck(this)">
+          <div class="input-group-append">
+            <span class="input-group-text">~</span>
+          </div>
+          <input id="cannonFinish" type="number" min="1" max="99" class="form-control" value="10" maxlength="2"
+            oninput="maxLengthCheck(this)">
+          <div class="input-group-append">
+
+            <button class="btn btn-secondary" type="button" onclick="cannonSet()">
+              <i class="bi bi-gear"></i>
+            </button>
+          </div>
+
+        </div>
+        <input id="cannonExcept" type="text" class="form-control" placeholder="예외번호 (1, 2, ...)">
+        <span class="text-secondary">범위를 설정한 후에 대포를 클릭하세요.<br>범위는 1~99입니다.</span>
+      </div>
+    </div>
+
+
+  </div>
+
+
+  <!-- [ SCRIPTS ] -->
+
+  <!-- 알림(스낵바) -->
+  <script src="https://jshs.munzii.com/src/snackbar.js"></script>
+
+  <!-- 모듈 -->
+  <script type="text/javascript" src="module/mod-firebaseInitialize.js?v=J3.0.4"></script>
+  <script type="text/javascript" src="module/mod-cal.js?v=J3.0.4"></script>
+  <script type="text/javascript" src="module/mod-utility.js?v=J3.0.4"></script>
+  <script type="text/javascript" src="module/mod-skeleton.js?v=J3.0.4"></script>
+  <script type="text/javascript" src="module/menu_parsed.js" ?v=J3.0.4 media="screen and (min-width: 800px)"></script>
+  <script type="text/javascript" src="module/mod-main.js?v=J3.0.4"></script>
+  <script type="text/javascript" src="module/mod-food.js?v=J3.0.6a"></script>
+  <script type="text/javascript" src="module/mod-info.js?v=J3.0.4"></script>
+  <script type="text/javascript" src="module/mod-news.js?v=J3.0.4"></script>
+
+  <!-- 개발 모드 -->
+  <script> 
+    // TRUE 일 때, 조회수 증가 안함
+    var mode_DEVELOP = false;
+  </script>
+
+</body>
+
+</html>

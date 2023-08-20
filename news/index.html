@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+<!--
+  전곽일보 from munzii.
+  https://munzii.com
+
+  Join us on Facebook
+  https://fb.com/jshsnews
+-->
+
+<head>
+  <!-- METADATA -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Type" Content="text/html; charset=utf-8">
+  <meta name="description" content="전곽인이라면? 전곽일보.">
+  <meta name="keywords" content="jshs,jeonnam,전남과학고,전곽,전곽일보,급식,전곽 급식,huzi,huzikim,munzii">
+  <meta property="og:image" content="src/icon_preview.webp">
+  <meta property="og:title" content="전곽일보">
+  <meta property="og:description" content="전곽의 모든 것. 전곽일보 하나만으로.">
+  <link rel="canonical" href="https://jshs.munzii.com/">
+  <title>전곽투데이</title>
+  <link rel="shortcut icon" href="../src/new2/icon-small.png">
+
+  <!-- THEME COLOR -->
+  <meta name="theme-color" content="#f75127">
+  <meta name="msapplication-navbutton-color" content="#f75127">
+  <meta name="apple-mobile-web-app-status-bar-style" content="#f75127">
+
+  <!-- SCRIPT -->
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js"
+    integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script>
+    if (false || !!document.documentMode) {
+      alert("인터넷 익스플로러는 지원하지 않습니다. 크로미움 브라우저로 접속해 주세요.\nex) Google Chrome, Naver Whale, Microsoft Edge");
+      history.go(-1);
+    }
+
+  </script>
+
+  <!-- FIREBASE -->
+  <script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.2.3/firebase-firestore.js"></script>
+
+
+  <!-- BOOTSTRAP -->
+
+  <!-- CSS -->
+  <link rel="stylesheet" type="text/css" href="base-style.css?ver=J1.0.7">
+  <link rel="stylesheet" type="text/css" href="style.css?ver=J1.0.7">
+
+</head>
+
+<body data-aos-easing="ease" data-aos-duration="2000" data-aos-delay="0">
+  <div class="container-scroller">
+    <div class="main-panel">
+      <!-- partial:partials/_navbar.html -->
+
+      <header id="header">
+        <div class="container">
+          <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="navbar-bottom">
+              <div class="d-flex justify-content-between align-items-center">
+                <div>
+                  <a class="navbar-brand" href="javascript:history.go(0)"><img src="../src/new2/news-banner.png" alt="" /></a>
+                </div>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </header>
+
+      <div class="flash-news-banner" id="navbar">
+        <div class="container">
+          <div class="d-lg-flex align-items-center justify-content-between">
+            <div class="d-flex align-items-center">
+              <span class="badge badge-dark mr-3">공지사항</span>
+              <p class="mb-0">
+                전곽투데이에 오신 것을 환영합니다 :D
+              </p>
+            </div>
+            <div class="d-flex">
+              <span class="mr-3 badge badge-secondary" id="todayWidget"></span>
+              <a href="https://jshs.munzii.com/news/admin" class="badge badge-info" id="todayWidget"><span>기자 로그인</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div id="allContainer" class="content-wrapper">
+        <div class="container">
+          <div class="row aos-init aos-animate" data-aos="fade-up">
+            <div class="col-xl-8 stretch-card grid-margin">
+              <a id="headLink" style="width: 100%;">
+                <div class="position-relative" style="width: 100%;">
+  
+                  <img id="headCover" src="" alt="banner" class="img-fluid">
+                  <div class="banner-content">
+                    <div class="badge badge-danger fs-12 font-weight-bold mb-3">
+                      HEADLINE
+                    </div>
+                    <h1 id="headTitle" class="mb-2">
+                    </h1>
+                    <div class="fs-12">
+                      <span id="headAuthor" class="mr-2"></span>
+                      <span id="headDate"></span>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="col-xl-4 stretch-card grid-margin">
+              <div class="card text-white" style="background-color:#ce4746">
+                <div id="recentList" class="card-body">
+                  <h2>새소식</h2>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row aos-init aos-animate" data-aos="fade-up">
+            <div class="col-lg-3 stretch-card grid-margin">
+              <div class="card">
+                <div id="selectionMenu" class="card-body">
+                  <!-- <h2>정렬</h2>
+                  <ul class="vertical-menu">
+                    <li><a href="#">최신</a></li>
+                    <li><a href="#">공감순</a></li>
+                    <hr>
+                  </ul> -->
+                  <span class="badge badge-info"><a href="#">#전곽일보</a></span><br>
+                  <span class="badge badge-info"><a href="#">#학교생활 #학생회</a></span><br>
+                  <span class="badge badge-info"><a href="#">#과학 #기술</a></span><br>
+                  <span class="badge badge-info"><a href="#">#IT #게임</a></span><br>
+                  <span class="badge badge-info"><a href="#">#디자인 #뷰티</a></span><br>
+                  <span class="badge badge-info"><a href="#">#자연 #동물</a></span><br>
+                  <span class="badge badge-info"><a href="#">#정치 #경제 #법률</a></span><br>
+                  <span class="badge badge-info"><a href="#">#연예 #엔터</a></span><br>
+                  <span class="badge badge-info"><a href="#">#스포츠 #건강</a></span><br>
+                  <span class="badge badge-info"><a href="#">#기타</a></span>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-9 stretch-card grid-margin">
+              <div class="card">
+                <div id="newsListSection" class="card-body">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="footer-top">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-5">
+                <img src="../src/new2/news-banner.png" class="footer-logo">
+                <h5 class="font-weight-normal mt-4 mb-5">
+                  전곽의 모든 것. 전곽일보.
+                </h5>
+                <div class="icon-list-social mb-5">
+                  <a class="icon-list-social-link" href="https://www.facebook.com/jshsnews">
+                    <svg width="40" class="svg-inline--fa fa-facebook fa-w-16" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="facebook" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg="">
+                      <path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z">
+                      </path>
+                    </svg>
+                  </a>
+                  <a class="icon-list-social-link" href="https://m.me/jshsnews">
+                    <svg style="width:40px; height: 40px;" id="Bold" enable-background="new 0 0 24 24" height="512" viewBox="0 0 24 24" width="512" xmlns="http://www.w3.org/2000/svg">
+                      <path d="m0 11.111c0 3.496 1.744 6.615 4.471 8.652v4.237l4.086-2.242c1.09.301 2.245.465 3.442.465 6.627 0 12-4.974 12-11.111.001-6.137-5.372-11.112-11.999-11.112s-12 4.974-12 11.111zm10.734-3.112 3.13 3.259 5.887-3.259-6.56 6.962-3.055-3.258-5.963 3.259z"></path>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+
+              <div class="col-sm-4">
+                <h3 class="font-weight-bold mb-3">Family Sites</h3>
+                <div class="footer-border-bottom pb-2">
+                  <a href="https://jshs.munzii.com/">
+                    <div class="d-flex justify-content-between align-items-center">
+                      <h5 class="mb-0 font-weight-600">전곽일보</h5>
+                    </div>
+                  </a>
+                </div>
+                <div class="footer-border-bottom pb-2">
+                  <a href="https://jshs.munzii.com/news">
+                    <div class="d-flex justify-content-between align-items-center">
+                      <h5 class="mb-0 font-weight-600">전곽투데이</h5>
+                    </div>
+                  </a>
+                </div>
+                <div class="footer-border-bottom pb-2">
+                  <a href="https://jshs.munzii.com/market">
+                    <div class="d-flex justify-content-between align-items-center">
+                      <h5 class="mb-0 font-weight-600">전곽 MARKET</h5>
+                    </div>
+                  </a>
+                </div>
+                <div class="footer-border-bottom pb-2">
+                  <a href="https://jshs.munzii.com/jcal">
+                    <div class="d-flex justify-content-between align-items-center">
+                      <h5 class="mb-0 font-weight-600">전곽 캘린더</h5>
+                    </div>
+                  </a>
+                </div>
+                <div class="footer-border-bottom pb-2">
+                  <a href="https://jshs.munzii.com/history">
+                    <div class="d-flex justify-content-between align-items-center">
+                      <h5 class="mb-0 font-weight-600">전곽일보 Timetravel</h5>
+                    </div>
+                  </a>
+                </div>
+                <div class="footer-border-bottom pb-2">
+                  <a href="https://jshs.munzii.com/unplival">
+                    <div class="d-flex justify-content-between align-items-center">
+                      <h5 class="mb-0 font-weight-600">UNPLIVAL 초콜릿 공장</h5>
+                    </div>
+                  </a>
+                </div>
+              </div>
+
+              <div class="col-sm-3">
+                <h3 class="font-weight-bold mb-3">Views</h3>
+                <ul class="list-unstyled mb-0">
+                  <li class="mb-2">Today <b><span id="todayView">0</span></b></li>
+                  <li class="mb-2">Total <b><span id="totalView">0</span></b></li>
+                </ul>
+                <hr>
+                <h3 class="font-weight-bold mb-3">Developer</h3>
+                <ul class="list-unstyled mb-0">
+                  <li class="mb-2">JSHS 27<sup>th</sup> HUZI (김지후)</li>
+                </ul>
+
+
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="d-sm-flex justify-content-between align-items-center">
+                  <div class="fs-14 font-weight-600">
+                    © 2021 @ <a href="https://munzii.com/" target="_blank" class="text-white"> Munzii</a>. All rights
+                    reserved.
+                  </div>
+                  <div class="fs-14 font-weight-600">
+                    Keep in touch with <a href="mailto:huzi@kakao.com"><b>huzi@kakao.com</b></a> or <a
+                      href="https://m.me/jshsnews"><b>Messenger</b></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+    </div>
+  </div>
+
+  <script> var mode_DEVELOP = false;</script>
+  <script type="text/javascript" src="functions.js?ver=J1.0.7"></script>
+  
+</body>
+
+</html>
