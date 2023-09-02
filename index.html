@@ -18,7 +18,7 @@
   <meta property="og:title" content="전곽일보">
   <meta property="og:description" content="전곽의 모든 것. 전곽일보 하나만으로.">
   <link rel="canonical" href="https://jshs.munzii.com/">
-  <title>전곽일보 - 전곽의 모든 것!</title>
+  <title>전곽일보 - 전곽의 모든 것</title>
   <link rel="shortcut icon" href="https://jshs.munzii.com/src/new2/icon-small.png">
 
   <!-- THEME COLOR -->
@@ -623,16 +623,16 @@
       <a id="cannonButton" href="javascript:cannonShoot()"><img class="floating"
           data-src="https://jshs.munzii.com/src/new/cannon-boat.webp" id="cannonImg"
           src="https://jshs.munzii.com/src/new/cannon-boat.webp"></a>
-      <button id="cannonBall" class="comicFont">45</button>
+      <button id="cannonBall" class="comicFont"></button>
       <button id="cannonExit" onclick="cannonWindowToggle()"></button>
       <div id="cannonControl">
         <div class="input-group mb-3">
-          <input id="cannonStart" type="number" min="1" max="99" class="form-control" value="1" maxlength="2"
+          <input id="cannonStart" type="number" min="1" max="999" class="form-control" value="1" maxlength="3"
             oninput="maxLengthCheck(this)">
           <div class="input-group-append">
             <span class="input-group-text">~</span>
           </div>
-          <input id="cannonFinish" type="number" min="1" max="99" class="form-control" value="10" maxlength="2"
+          <input id="cannonFinish" type="number" min="1" max="999" class="form-control" value="10" maxlength="3"
             oninput="maxLengthCheck(this)">
           <div class="input-group-append">
 
@@ -643,7 +643,7 @@
 
         </div>
         <input id="cannonExcept" type="text" class="form-control" placeholder="예외번호 (1, 2, ...)">
-        <span class="text-secondary">범위를 설정한 후에 대포를 클릭하세요.<br>범위는 1~99입니다.</span>
+        <span class="text-secondary">범위를 설정한 후에 대포를 클릭하세요.<br>범위는 1~999입니다.</span>
       </div>
     </div>
 

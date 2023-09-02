@@ -58,7 +58,6 @@
     background-color: transparent;
     color: white;
     opacity: 0;
-    font-size: 40px;
     z-index: 8;
 }
 
@@ -73,7 +72,7 @@
 }
 
 #cannonControl input {
-    width: 100px;
+    width: 135px;
     height: 100px;
     font-size: 50px;
 }
